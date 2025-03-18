@@ -1,0 +1,405 @@
+:global(body) {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+.formContainer {
+    max-width: 600px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 2rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+.progressBar {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+    width: 100%;
+}
+
+
+.step {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.step.active {
+    background: #6366f1;
+    color: white;
+}
+
+.progress {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 2px;
+    background: #6366f1;
+    transition: width 0.3s ease;
+    z-index: 1;
+}
+
+.formStep {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.formStep.active {
+    display: block;
+}
+
+/* Language Selection */
+.languageOptions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 0;
+}
+
+.languageOption {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.languageOption:hover {
+    border-color: #6366f1;
+    background-color: #f8f9ff;
+}
+
+.radioCircle {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 12px;
+    border: 2px solid #d1d5db;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.radioCircle:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #6366f1;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.languageOption input[type="radio"] {
+    opacity: 0;
+    position: absolute;
+}
+
+.languageOption input[type="radio"]:checked + .radioCircle {
+    border-color: #6366f1;
+}
+
+.languageOption input[type="radio"]:checked + .radioCircle:before {
+    opacity: 1;
+}
+
+/* Accessibility Controls */
+.accessibilityControls {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.accessibilityOption {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+}
+
+.optionLabel {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #e5e7eb;
+    transition: 0.3s;
+    border-radius: 24px;
+}
+
+.slider:before {
+    content: "";
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: 0.3s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #6366f1;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.textSizeButtons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.sizeBtn {
+    padding: 0.5rem 1rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    background: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.sizeBtn:hover {
+    border-color: #6366f1;
+    color: #6366f1;
+}
+
+/* Interest Grid */
+.interestGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    padding: 1rem 0;
+}
+
+.interestCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.interestCard:hover {
+    border-color: #6366f1;
+    background-color: #f8f9ff;
+}
+
+.interestCard.selected {
+    border-color: #6366f1;
+    background-color: #f8f9ff;
+}
+
+.interestIcon {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Form Controls */
+.formGroup {
+    margin-bottom: 1rem;
+}
+
+.formInput {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    transition: border-color 0.2s ease;
+}
+
+.formInput:focus {
+    border-color: #6366f1;
+    outline: none;
+}
+
+.passwordContainer {
+    position: relative;
+}
+
+.passwordToggle {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.prevBtn, .nextBtn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.prevBtn {
+    background: #e5e7eb;
+}
+
+.nextBtn {
+    background: #6366f1;
+    color: white;
+}
+
+.prevBtn:hover {
+    background: #d1d5db;
+}
+
+.nextBtn:hover {
+    background: #4f46e5;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* ... existing code ... */
+
+.socialButton {
+    width: 100%;
+    padding: 0.75rem;
+    margin: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    background: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 1rem;
+}
+
+.socialButton:hover {
+    background-color: #f8f9ff;
+    border-color: #6366f1;
+}
+
+.socialButton img {
+    width: 24px;
+    height: 24px;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 1.5rem 0;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.divider span {
+    padding: 0 1rem;
+    color: #6b7280;
+}
+
+.rememberForgot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.rememberMe {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.forgotPassword {
+    color: #6366f1;
+    text-decoration: none;
+}
+
+.forgotPassword:hover {
+    text-decoration: underline;
+}
+
+/* ... existing code ... */
+
+.signInButton {
+    width: 100%;
+    padding: 0.75rem;
+    margin: 1rem 0;
+    background: #6366f1;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.signInButton:hover {
+    background: #4f46e5;
+}
+
+/* ... rest of existing code ... */
+
+/* ... rest of existing code ... */
