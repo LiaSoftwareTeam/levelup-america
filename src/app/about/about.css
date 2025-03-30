@@ -39,14 +39,14 @@
   margin: 0;
 }
 .about-container .about-img {
-    width: 100%;
-    height: 450px;
-    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
-                url("../../../public/media/estudiantes.jpg") no-repeat center;
-    background-size: cover;
-    background-blend-mode: darken;
-  }
-  
+  width: 100%;
+  height: 450px;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url("../../../public/media/estudiantes.jpg") no-repeat center;
+  background-size: cover;
+  background-blend-mode: darken;
+}
+
 .about-container .about-text {
   padding: 30px 0;
 }
@@ -137,40 +137,40 @@
   gap: 0.5rem;
 }
 .notification-overlay {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 1000;
-    display: flex;
-    justify-content: flex-end;
-    pointer-events: none;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  justify-content: flex-end;
+  pointer-events: none;
+}
+
+.notification-content {
+  background-color: #2196f3;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  animation: slideIn 0.3s ease-out;
+  max-width: 300px;
+}
+
+.notification-content p {
+  margin: 0;
+  font-size: 16px;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
   }
-  
-  .notification-content {
-    background-color: #2196f3;
-    color: white;
-    padding: 15px 25px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    animation: slideIn 0.3s ease-out;
-    max-width: 300px;
+  to {
+    transform: translateX(0);
+    opacity: 1;
   }
-  
-  .notification-content p {
-    margin: 0;
-    font-size: 16px;
-  }
-  
-  @keyframes slideIn {
-    from {
-      transform: translateX(100%);
-      opacity: 0;
-    }
-    to {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
+}
 .post-title {
   font-size: 1.1rem;
   color: #333;
@@ -216,9 +216,143 @@
   transform: translateY(-2px);
 }
 
+/* mison and values start */
+.mision-values-container {
+  width: 100%;
+  padding: 100px 8%;
+  background: #f1f1f1;
+}
+.mision-values-container .mision {
+  min-height: 120vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.mision-values-container .mision-img {
+  width: 52%;
+  height: 650px;
+  background: url("../../../public/media/about/mision.webp") no-repeat center;
+  background-size: cover;
+}
+
+.mision-values-container .mision .mision-text {
+  width: 60%;
+  margin-left: -10%;
+  background: #fff;
+  padding: 40px;
+}
+.mision-values-container .mision .mision-text span {
+  color: #0675ec;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.mision-values-container .mision .mision-text h3 {
+  text-transform: capitalize;
+  font-size: 35px;
+  line-height: 1.3;
+  margin: 5px 0;
+}
+.mision-values-container .mision .mision-text p {
+  font-size: 17px;
+  color: #555454;
+  line-height: 2;
+}
+.mision-values-container .mision .mision-text a {
+  color: #fff;
+  background: #024f9b;
+  text-decoration: none;
+  padding: 10px 30px;
+  border-radius: 4px;
+  transition: 0.2s;
+}
+.mision-values-container .mision .mision-images {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+  height: 160px;
+  padding-bottom: 15px;
+}
+.mision-values-container .mision .mision-images img {
+  width: 47%;
+  height: 100%;
+  object-fit: cover;
+}
+.mision-values-container .mision .mision-text a:hover {
+  opacity: 0.9;
+}
+.values {
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.values .value-box {
+  height: 115px;
+  width: 31.5%;
+  display: flex;
+  align-items: center;
+}
+.values .value-box .value-icon {
+  min-width: 110px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #024f9b;
+}
+.values .value-box .value-icon ion-icon {
+  font-size: 30px;
+  color: #f1f1f1;
+}
+.values .value-box .value-text {
+  padding: 6px 8px;
+  margin-left: 5px;
+}
+.values .value-box .value-text p {
+  letter-spacing: 0.5px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #353434;
+}
+.values .value-box .value-text span {
+  font-size: 15px;
+  color: #555454;
+}
+/* mision and values end */
+
 @media (max-width: 1124px) {
   .about-container {
     padding: 60px 40px;
+  }
+  .mision-values-container {
+    width: 100%;
+    padding: 100px 50px;
+  }
+  .values {
+    display: none;
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 1000px) {
+  .mision-values-container .mision {
+    flex-direction: column;
+    width: 100%;
+  }
+  .mision-values-container .mision-img {
+    width: 80%;
+    height: 650px;
+  }
+
+  .mision-values-container .mision .mision-text {
+    width: 80%;
+    margin-left: 0;
+    background: #fff;
+    padding: 40px;
+    margin-top: 40px;
   }
 }
 
@@ -268,8 +402,41 @@
   .background-content .filter p {
     font-size: 40px;
   }
+  .mision-values-container .mision-img {
+    width: 100%;
+    height: 650px;
+  }
+  .mision-values-container .mision .mision-text h3 {
+    font-size: 27px;
+  }
+  .mision-values-container .mision .mision-text {
+    width: 100%;
+    padding: 40px 20px;
+    height: auto;
+  }
 }
-
+@media (max-width: 650px) {
+  .background-content .filter {
+    padding: 0;
+  }
+  .background-content .filter p {
+    font-size: 25px;
+  }
+  .mision-values-container {
+    padding: 100px 20px;
+  }
+  .mision-values-container .mision-img {
+    height: 550px;
+  }
+  .mision-values-container .mision .mision-images {
+    display: flex;
+    margin: 20px 0;
+    height: auto;
+  }
+  .mision-values-container .mision .mision-images img {
+    margin-bottom: 10px;
+  }
+}
 @media (max-width: 480px) {
   .about-container {
     padding: 30px 15px;
