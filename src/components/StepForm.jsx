@@ -5,6 +5,7 @@ import styles from '../app/StepForm.module.css';
 import { updateTextSize, enableScreenReader, disableScreenReader, speakContent } from './accesibility';
 import { signInWithPopup, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, googleProvider } from "../app/firebase/config.js";
+import { translations } from '../utils/translations';
 
 export default function StepForm() {
     const [currentStep, setCurrentStep] = useState(1);
@@ -17,6 +18,15 @@ export default function StepForm() {
         password: ''
     });
 
+    const t = (key, params = {}) => {
+        const lang = formData.language || 'es';
+        let text = translations[lang][key] || key;
+        Object.entries(params).forEach(([param, value]) => {
+            text = text.replace(`{${param}}`, value);
+        });
+        return text;
+    };
+
     const handleMouseOver = (text) => {
         if (document.getElementById('screenReader')?.checked) {
             speakContent(text);
@@ -27,7 +37,7 @@ export default function StepForm() {
         const validations = {
             1: () => {
                 if (!formData.language) {
-                    alert('Por favor selecciona un idioma');
+                    alert(t('pleaseSelectLanguage'));
                     return false;
                 }
                 return true;
@@ -35,18 +45,18 @@ export default function StepForm() {
             2: () => true,
             3: () => {
                 if (formData.interests.length === 0) {
-                    alert('Por favor selecciona al menos un tema de interés');
+                    alert(t('pleaseSelectInterests'));
                     return false;
                 }
                 return true;
             },
             4: () => {
                 if (!formData.email || !formData.password) {
-                    alert('Por favor completa todos los campos');
+                    alert(t('pleaseCompleteFields'));
                     return false;
                 }
                 if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-                    alert('Por favor ingresa un email válido');
+                    alert(t('invalidEmail'));
                     return false;
                 }
                 return true;
@@ -60,7 +70,7 @@ export default function StepForm() {
 
     const handleLanguageChange = (lang) => {
         setFormData(prev => ({ ...prev, language: lang }));
-        handleMouseOver(lang === 'es' ? 'Has seleccionado Español' : 'You have selected English');
+        handleMouseOver(t('languageSelected', { language: lang === 'en' ? 'English' : 'Español' }));
     };
 
     const handleInterestToggle = (interest) => {
@@ -72,8 +82,8 @@ export default function StepForm() {
                 : [...prev.interests, interest]
         }));
         handleMouseOver(isSelected
-            ? `Has eliminado ${interest} de tus temas de interés`
-            : `Has seleccionado ${interest} como tema de interés`
+            ? t('interestRemoved', { interest: t(`interests.${interest}`) })
+            : t('interestAdded', { interest: t(`interests.${interest}`) })
         );
     };
 
@@ -84,12 +94,12 @@ export default function StepForm() {
     };
 
     const interests = [
-        { name: 'Technology', icon: '💻' },
-        { name: 'Sports', icon: '⚽' },
-        { name: 'Music', icon: '🎵' },
-        { name: 'Art', icon: '🎨' },
-        { name: 'Travel', icon: '✈️' },
-        { name: 'Food', icon: '🍽️' }
+        { name: 'Innovation', icon: '💡' },
+        { name: 'Strategy', icon: '🎯' },
+        { name: 'Collaboration', icon: '🤝' },
+        { name: 'Productivity', icon: '⚡' },
+        { name: 'Leadership', icon: '👥' },
+        { name: 'Other', icon: '🔄' }
     ];
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -155,18 +165,22 @@ export default function StepForm() {
 
 
     return (
-        <div className={styles.formContainer}>
+       <div style={{
+        minHeight: '100vh',
+        background: 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)'
+      }} >
+         <div className={styles.formContainer}>
             {isLoading && (
                 <div className={styles.loadingOverlay}>
                     <div className={styles.loadingSpinner}></div>
                 </div>
             )}
-            <div className={styles.progressBar} onMouseOver={() => handleMouseOver(`Paso ${currentStep} de 4`)}>
+            <div className={styles.progressBar} onMouseOver={() => handleMouseOver(t('stepOf', { current: currentStep, total: 4 }))}>
                 {[1, 2, 3, 4].map((step) => (
                     <div
                         key={step}
                         className={`${styles.step} ${currentStep >= step ? styles.active : ''}`}
-                        onMouseOver={() => handleMouseOver(`Paso ${step}`)}
+                        onMouseOver={() => handleMouseOver(t('step', { step }))}
                     >
                         {step}
                     </div>
@@ -175,9 +189,9 @@ export default function StepForm() {
             </div>
 
             <form className={styles.stepForm} onSubmit={handleSubmit}>
-                {/* Paso 1: Selección de idioma */}
+                {/* Step 1: Language Selection */}
                 <div className={`${styles.formStep} ${currentStep === 1 ? styles.active : ''}`}>
-                    <h2 onMouseOver={() => handleMouseOver("Selecciona tu idioma")}>Selecciona tu idioma</h2>
+                    <h2 onMouseOver={() => handleMouseOver(t('selectLanguage'))}>{t('selectLanguage')}</h2>
                     <div className={styles.languageOptions}>
                         {[
                             { value: 'es', label: 'Español' },
@@ -204,18 +218,19 @@ export default function StepForm() {
 
                 {/* Paso 2: Preferencias de accesibilidad */}
                 <div className={`${styles.formStep} ${currentStep === 2 ? styles.active : ''}`}>
-                    <h2 onMouseOver={() => handleMouseOver("Accessibility Preferences")}>
-                        Accessibility Preferences
+                    <h2 onMouseOver={() => handleMouseOver(t('accessibility'))}>
+                        {t('accessibility')}
                     </h2>
                     <div className={styles.accessibilityControls}>
                         {/* High Contrast Option */}
                         <div
                             className={styles.accessibilityOption}
-                            onMouseOver={() => handleMouseOver("High Contrast Option")}
+                            onMouseOver={() => handleMouseOver(t('highContrast'))}
+                            aria-label={t('highContrast')}
                         >
                             <div className={styles.optionLabel}>
                                 <span className={styles.contrastIcon}>🌓</span>
-                                <span>High Contrast</span>
+                                <span>{t('highContrast')}</span>
                             </div>
                             <label className={styles.switch}>
                                 <input
@@ -223,74 +238,72 @@ export default function StepForm() {
                                     id="highContrast"
                                     onChange={(e) => {
                                         document.body.classList.toggle('high-contrast', e.target.checked);
-                                        handleMouseOver(e.target.checked ? "High contrast enabled" : "High contrast disabled");
+                                        handleMouseOver(t(e.target.checked ? 'highContrastEnabled' : 'highContrastDisabled'));
                                     }}
+                                    aria-label={t('highContrast')}
                                 />
                                 <span className={styles.slider}></span>
                             </label>
                         </div>
 
-                        {/* Text Size Option */}
-                        <div
-                            className={styles.accessibilityOption}
-                            onMouseOver={() => handleMouseOver("Text Size Options")}
-                        >
-                            <div className={styles.optionLabel}>
-                                <span className={styles.textIcon}>Aa</span>
-                                <span>Text Size</span>
-                            </div>
-                            <div className={styles.textSizeButtons}>
-                                {[
-                                    { size: '0.9rem', label: 'A-' },
-                                    { size: '1rem', label: 'A' },
-                                    { size: '1.2rem', label: 'A+' }
-                                ].map(({ size, label }) => (
-                                    <button
-                                        key={label}
-                                        type="button"
-                                        className={styles.sizeBtn}
-                                        onClick={() => updateTextSize(size)}
-                                        onMouseOver={() => handleMouseOver(`Text size ${label}`)}
-                                    >
-                                        {label}
-                                    </button>
-                                ))}
-                            </div>
-                        </div>
-
                         {/* Screen Reader Option */}
                         <div
                             className={styles.accessibilityOption}
-                            onMouseOver={() => handleMouseOver("Screen Reader Option")}
+                            onMouseOver={() => handleMouseOver(t('screenReader'))}
+                            aria-label={t('screenReader')}
                         >
                             <div className={styles.optionLabel}>
                                 <span className={styles.readerIcon}>🔊</span>
-                                <span>Screen Reader</span>
+                                <span>{t('screenReader')}</span>
                             </div>
                             <label className={styles.switch}>
                                 <input
                                     type="checkbox"
                                     id="screenReader"
                                     onChange={(e) => {
-                                        if (e.target.checked) {
-                                            enableScreenReader();
-                                            handleMouseOver("Screen reader enabled");
-                                        } else {
-                                            disableScreenReader();
-                                            handleMouseOver("Screen reader disabled");
-                                        }
+                                        e.target.checked ? enableScreenReader() : disableScreenReader();
+                                        handleMouseOver(t(e.target.checked ? 'screenReaderEnabled' : 'screenReaderDisabled'));
                                     }}
+                                    aria-label={t('screenReader')}
                                 />
                                 <span className={styles.slider}></span>
                             </label>
+                        </div>
+
+                        {/* Font Size Controls */}
+                        <div
+                            className={styles.accessibilityOption}
+                            onMouseOver={() => handleMouseOver(t('fontSize'))}
+                            aria-label={t('fontSize')}
+                        >
+                            <div className={styles.optionLabel}>
+                                <span className={styles.fontIcon}>Aa</span>
+                                <span>{t('fontSize')}</span>
+                            </div>
+                            <div className={styles.textSizeButtons}>
+                                {['14px', '16px', '18px'].map(size => (
+                                    <button
+                                        key={size}
+                                        type="button"
+                                        className={styles.sizeBtn}
+                                        onClick={() => {
+                                            updateTextSize(size);
+                                            handleMouseOver(t('textSize', { size }));
+                                        }}
+                                        aria-label={t('textSize', { size })}
+                                    >
+                                        {size}
+                                    </button>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 {/* Paso 3: Intereses */}
                 <div className={`${styles.formStep} ${currentStep === 3 ? styles.active : ''}`}>
-                    <h2 onMouseOver={() => handleMouseOver("Selecciona tus temas de interés")}>
-                        Selecciona tus temas de interés
+                    <h2 onMouseOver={() => handleMouseOver(t('selectInterests'))}>
+                        {t('selectInterests')}
                     </h2>
                     <div className={styles.interestGrid}>
                         {interests.map((interest) => (
@@ -298,7 +311,8 @@ export default function StepForm() {
                                 key={interest.name}
                                 className={`${styles.interestCard} ${formData.interests.includes(interest.name) ? styles.selected : ''}`}
                                 onClick={() => handleInterestToggle(interest.name)}
-                                onMouseOver={() => handleMouseOver(`${interest.name} ${formData.interests.includes(interest.name) ? 'selected' : ''}`)}
+                                onMouseOver={() => handleMouseOver(t(formData.interests.includes(interest.name) ? 'interestRemoved' : 'interestAdded', { interest: t(`interests.${interest.name}`) }))}
+
                                 onKeyPress={(e) => {
                                     if (e.key === 'Enter' || e.key === ' ') {
                                         e.preventDefault();
@@ -310,7 +324,7 @@ export default function StepForm() {
                                 aria-checked={formData.interests.includes(interest.name)}
                             >
                                 <div className={styles.interestIcon}>{interest.icon}</div>
-                                <span className={styles.interestText}>{interest.name}</span>
+                                <span className={styles.interestText}>{t('interests')[interest.name]}</span>
                             </div>
                         ))}
                     </div>
@@ -318,9 +332,9 @@ export default function StepForm() {
 
                 {/* Paso 4: Login */}
                 <div className={`${styles.formStep} ${currentStep === 4 ? styles.active : ''}`}>
-                    <h2 onMouseOver={() => handleMouseOver("Welcome back")}>Welcome</h2>
-                    <p className={styles.welcomeText} onMouseOver={() => handleMouseOver("We are happy to have you back")}>
-                        We are happy to have you back!
+                    <h2 onMouseOver={() => handleMouseOver(t('signIn'))}>{t('signIn')}</h2>
+                    <p className={styles.welcomeText} onMouseOver={() => handleMouseOver(t('welcomeBack'))}>
+                        {t('welcomeBack')}
                     </p>
 
                     <div className={styles.formGroup}>
@@ -330,9 +344,9 @@ export default function StepForm() {
                             name="email"
                             value={formData.email}
                             onChange={handleInputChange}
-                            placeholder="Email or phone"
+                            placeholder={t('email')}
                             className={styles.formInput}
-                            onMouseOver={() => handleMouseOver("Email input field")}
+                            onMouseOver={() => handleMouseOver(t('email'))}
                         />
                     </div>
 
@@ -344,9 +358,9 @@ export default function StepForm() {
                                 name="password"
                                 value={formData.password}
                                 onChange={handleInputChange}
-                                placeholder="Password"
+                                placeholder={t('password')}
                                 className={styles.formInput}
-                                onMouseOver={() => handleMouseOver("Password input field")}
+                                onMouseOver={() => handleMouseOver(t('password'))}
                             />
                             <button
                                 type="button"
@@ -355,9 +369,9 @@ export default function StepForm() {
                                     const input = document.getElementById('password');
                                     const newType = input.type === 'password' ? 'text' : 'password';
                                     input.type = newType;
-                                    handleMouseOver(newType === 'text' ? "Password visible" : "Password hidden");
+                                    handleMouseOver(t(newType === 'text' ? 'passwordVisible' : 'passwordHidden'));
                                 }}
-                                onMouseOver={() => handleMouseOver("Toggle password visibility")}
+                                onMouseOver={() => handleMouseOver(t('togglePassword'))}
                             >
                                 👁️
                             </button>
@@ -367,20 +381,20 @@ export default function StepForm() {
                     <div className={styles.rememberForgot}>
                         <label
                             className={styles.rememberMe}
-                            onMouseOver={() => handleMouseOver("Remember me option")}
+                            onMouseOver={() => handleMouseOver(t('rememberMe'))}
                         >
                             <input
                                 type="checkbox"
-                                onChange={(e) => handleMouseOver(e.target.checked ? "Remember me enabled" : "Remember me disabled")}
+                                onChange={(e) => handleMouseOver(t(e.target.checked ? 'rememberMeEnabled' : 'rememberMeDisabled'))}
                             />
-                            <span>Remember me</span>
+                            <span>{t('rememberMe')}</span>
                         </label>
                         <a
                             href="#"
                             className={styles.forgotPassword}
-                            onMouseOver={() => handleMouseOver("Forgot password link")}
+                            onMouseOver={() => handleMouseOver(t('forgotPassword'))}
                         >
-                            Forgot password?
+                            {t('forgotPassword')}
                         </a>
                     </div>
 
@@ -410,7 +424,7 @@ export default function StepForm() {
                         }}
                         onMouseOver={() => handleMouseOver("Sign in with Google button")}
                     >
-                        <img src="/google-icon.png" alt="" role="presentation" />
+                        <img src="/media/google.webp" alt="" role="presentation" />
                         Sign in with Google
                     </button>
 
@@ -428,25 +442,28 @@ export default function StepForm() {
             </form>
 
             <div className={styles.buttonContainer}>
-                {currentStep > 1 && currentStep < 4 && (
+                {currentStep > 1 && (
                     <button
-                        onClick={handlePrev}
+                        type="button"
                         className={styles.prevBtn}
-                        onMouseOver={() => handleMouseOver("Previous step button")}
+                        onClick={handlePrev}
+                        onMouseOver={() => handleMouseOver(t('previous'))}
+                        aria-label={t('previous')}
                     >
-                        Anterior
+                        {t('previous')}
                     </button>
                 )}
-                {currentStep < 4 && (
-                    <button
-                        onClick={handleNext}
-                        className={styles.nextBtn}
-                        onMouseOver={() => handleMouseOver("Next step")}
-                    >
-                        Siguiente
-                    </button>
-                )}
+                <button
+                    type="button"
+                    className={styles.nextBtn}
+                    onClick={currentStep === 4 ? handleSubmit : handleNext}
+                    onMouseOver={() => handleMouseOver(t('next'))}
+                    aria-label={t('next')}
+                >
+                    {t('next')}
+                </button>
             </div>
         </div>
+       </div>
     );
 }

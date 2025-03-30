@@ -1,5 +1,3 @@
-
-
 :root {
   --primary-color: #007bff;
   --primary-color-light: #cce5ff;
@@ -20,8 +18,11 @@ body.high-contrast {
   margin: 0;
   padding: 0;
 }
-
+html{
+  scroll-behavior: smooth;
+}
 body {
+  overflow-x: hidden;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   line-height: 1.6;
   color: var(--text-color);
@@ -33,4 +34,27 @@ input:focus,
 a:focus {
   outline: 3px solid var(--primary-color);
   outline-offset: 2px;
+}
+
+/* Para navegadores basados en Webkit (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 7px;
+  /* Ancho de la scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  /* Color del fondo */
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #091058;
+  /* Color del "pulgar" de la scrollbar */
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #09367f;
+  /* Color al pasar el mouse */
 }

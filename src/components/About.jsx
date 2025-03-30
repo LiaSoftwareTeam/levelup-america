@@ -1,62 +1,66 @@
-import "./components.css";
+import { motion } from "framer-motion";
+import Script from "next/script"; // Asegúrate de importar el componente Script de Next.js
 
 export default function About() {
   return (
     <div>
-      <section className="about" id="about">
-        <div className="about-text">
-          <div className="about-title">
-            <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores,
-              eius
-            </p>
-          </div>
-          <div className="text-ph">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum
-              omnis, ea rem error nisi a earum dolores vel. Molestias, cum.
-              Mollitia rem aperiam eos reiciendis dolorum eveniet nisi cumque
-              eaque!
-            </p>
-            <p style={{ marginTop: "10px" }}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-              facere delectus impedit cum magni quaerat harum repellat atque
-              libero nobis.
-            </p>
-          </div>
+      {/* Aquí agregamos los dos scripts de ionicons */}
+      <Script
+        type="module"
+        src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+        strategy="lazyOnload"
+      />
+      <Script
+        noModule
+        src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+        strategy="lazyOnload"
+      />
 
-          <div className="text-video"></div>
-          <div className="text-button">
-            <button>Read more</button>
-          </div>
-          <div className="text-other">
+      <section className="discover" id="about">
+        <motion.div
+          className="discover-text"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true, amount: 0.5 }}
+        >
+          <div className="title-discover">
             <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed
-              tempora eaque libero possimus. Voluptate, esse? Laudantium modi,
-              placeat nesciunt tenetur animi pariatur nam cum iure, facere amet
-              architecto cumque aliquid.
+              Discover <br /> About <span>Us</span>{" "}
             </p>
           </div>
-        </div>
-        <div className="about-cards">
-          <div className="card-title">
-            <p>Next Activities</p>
-          </div>
-          <div className="card">
-            <div className="card-img"></div>
-            <div className="card-desc">
-              <span>Lorem ipsum dolor sit amet </span>
-              <button>Read Now </button>
+          <motion.div
+            className="body-discover"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true, amount: 0.5 }}
+          >
+            <span>
+              If you're looking for an opportunity to transform your life, both personally and professionally, <strong style={{color:"#383838"}}>LEVEL UP AMERICA</strong> is the ideal place to start. Our mission is to empower you by providing the tools, support, and guidance you need to achieve your dreams and successfully develop your projects.
+            </span>
+            <br />
+            <span>
+              As part of this movement, you'll have the opportunity to connect with a vibrant network of individuals and professionals willing to work together toward a future of well-being, development, and success.
+            </span>
+            <div className="promotion-profile">
+              <img src="/media/people.jpg" alt="" />
+              <span>Joe Doe's, <strong>CEO</strong> <br />of <strong>Level Up America</strong></span>
             </div>
+          </motion.div>
+        </motion.div>
+        <motion.div
+          className="discover-video"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true, amount: 0.5 }}
+        >
+          <div className="bg-color"></div>
+          <div className="img-bg">
+            <ion-icon name="play-outline"></ion-icon>
           </div>
-          <div className="card" >
-            <div className="card-img"></div>
-            <div className="card-desc">
-              <span>Lorem ipsum dolor sit amet </span>
-              <button>Read Now </button>
-            </div>
-          </div>
-        </div>
+        </motion.div>
       </section>
     </div>
   );

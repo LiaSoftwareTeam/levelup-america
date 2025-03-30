@@ -5,18 +5,57 @@
   z-index: 2;
   width: 100%;
   height: 100vh;
-  background: rgba(37, 65, 104, 0.6);
+  background: rgb(23, 43, 69);
+  animation: home 0.6s 1.2s ease forwards;
+}
+
+@keyframes home {
+  0% {
+    background: rgb(20, 35, 56);
+  }
+  20% {
+    background: rgba(37, 65, 104, 0.95);
+  }
+  40% {
+    background: rgba(37, 65, 104, 0.9);
+  }
+  60% {
+    background: rgba(37, 65, 104, 0.85);
+  }
+  80% {
+    background: rgba(37, 65, 104, 0.7);
+  }
+  100% {
+    background: rgba(37, 65, 104, 0.6);
+  }
 }
 .text-start {
   position: absolute;
-  bottom: 150px;
+  top: 40%;
   left: 100px;
+  z-index: 100;
 }
 .text-start h2 {
   line-height: 100px;
   font-size: 80px;
   color: #f1f1f1;
   letter-spacing: -1px;
+}
+.text-start span {
+  position: relative;
+  bottom: -40px;
+  margin-right: 20px;
+  animation: span 1s 1s ease-in forwards;
+  opacity: 0;
+}
+@keyframes span {
+  0% {
+    bottom: -40px;
+  }
+  100% {
+    bottom: 10px;
+    opacity: 1;
+  }
 }
 
 .text-start button {
@@ -25,11 +64,23 @@
   font-weight: 500;
   color: #f1f1f1;
   border: none;
-  margin-top: 30px;
   background: #1e9ee8;
   border-radius: 5px;
   cursor: pointer;
+  position: relative;
+  margin-top: 30px;
+  opacity: 0;
+  animation: button 1s  0.4s ease forwards;
 }
+@keyframes button {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
 .box-decorator {
   width: 100%;
   height: 100vh;
@@ -40,23 +91,46 @@
 }
 .box-decorator .decorator1 {
   width: 300px;
-  height: 650px;
+  height: 60px;
   border-radius: 200px;
   rotate: -35deg;
   background: rgba(5, 98, 152, 0.6);
   position: absolute;
   top: -300px;
   right: 30%;
+  animation: decorator1 1.6s 2s ease forwards;
 }
 .box-decorator .decorator2 {
   width: 200px;
-  height: 300px;
+  height: 0px;
   position: absolute;
   bottom: -100px;
   right: -90px;
   border-radius: 100px;
   background: rgba(255, 255, 255, 0.4);
   rotate: -35deg;
+  animation: decorator2 2s 2.2s ease forwards;
+}
+@keyframes decorator1 {
+  0% {
+    height: 60px;
+    top: -300px;
+    right: 30%;
+  }
+  100% {
+    width: 300px;
+    height: 650px;
+    background: rgba(5, 98, 152, 0.6);
+    top: -300px;
+  }
+}
+@keyframes decorator2 {
+  0% {
+  }
+  100% {
+    width: 200px;
+    height: 300px;
+  }
 }
 @media (max-width: 1000px) {
   .text-start h2 {
@@ -82,16 +156,27 @@
   }
 }
 @media (max-width: 600px) {
-    .text-start {
-        bottom: 200px;
-      }
-    .text-start h2 {
-      line-height: 55px;
-      font-size: 35px;
-    }
-    .text-start button {
-      padding: 12px 40px;
-      font-size: 17px;
-    }
+  .text-start {
+    bottom: 200px;
   }
-  
+  .text-start h2 {
+    line-height: 55px;
+    font-size: 40px;
+  }
+  .text-start button {
+    padding: 12px 40px;
+    font-size: 17px;
+  }
+}
+
+
+@media (max-height: 800px){
+  .text-start {
+    bottom: 400px;
+  }
+}
+@media (max-height: 700px){
+  .text-start {
+    bottom: 200px;
+  }
+}
