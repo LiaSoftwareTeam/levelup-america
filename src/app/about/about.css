@@ -284,45 +284,77 @@
   opacity: 0.9;
 }
 .values {
-  margin-top: 10px;
+  margin-top: 20px;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap; /* Permite que los elementos se ajusten en pantallas pequeñas */
 }
-.values .value-box {
-  height: 115px;
-  width: 31.5%;
+
+.values .values-text {
+  width: 320px;
+}
+
+.values h3 {
+  font-size: 27px;
+}
+
+.values p {
+  color: #555454;
+  line-height: 2;
+}
+
+.values .values-boxes {
+  gap: 20px;
+  width: calc(100% - 360px);
   display: flex;
-  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap; /* Ajusta los elementos en varias filas si es necesario */
 }
-.values .value-box .value-icon {
-  min-width: 110px;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #024f9b;
+
+.values .values-boxes .box {
+  flex: 1; /* Hace que los elementos crezcan proporcionalmente */
+  min-width: 180px; /* Evita que se vuelvan demasiado pequeños */
+  padding: 15px;
+  border-radius: 5px;
+  background: rgba(12, 152, 211, 0.15);
 }
-.values .value-box .value-icon ion-icon {
-  font-size: 30px;
-  color: #f1f1f1;
-}
-.values .value-box .value-text {
-  padding: 6px 8px;
-  margin-left: 5px;
-}
-.values .value-box .value-text p {
-  letter-spacing: 0.5px;
+
+.values .values-boxes .box p {
+  color: #013d79;
+  font-weight: 600;
   font-size: 20px;
-  font-weight: 700;
-  color: #353434;
 }
-.values .value-box .value-text span {
-  font-size: 15px;
+
+.values .values-boxes .box span {
   color: #555454;
 }
-/* mision and values end */
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .values {
+    margin-top: 50px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .values .values-text {
+    width: 100%;
+  }
+
+  .values .values-boxes {
+    margin-top: 20px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .values .values-boxes .box {
+    width: 100%;
+    max-width: 300px; /* Limita el ancho en móviles */
+  }
+}
 
 @media (max-width: 1124px) {
   .about-container {
@@ -331,10 +363,6 @@
   .mision-values-container {
     width: 100%;
     padding: 100px 50px;
-  }
-  .values {
-    display: none;
-    flex-wrap: wrap;
   }
 }
 @media (max-width: 1000px) {
@@ -472,3 +500,6 @@
     font-size: 1.4rem;
   }
 }
+
+
+

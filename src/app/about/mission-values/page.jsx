@@ -49,42 +49,32 @@ export default function misionvalues() {
           </div>
         </div>
         <div className="values">
-          <div className="value-box">
-            <div className="value-icon">
-              <ion-icon name="trophy-outline"></ion-icon>
-            </div>
-            <div className="value-text">
+          <div className="values-text">
+            <h3>Our Values, Your Trust</h3>
+            <p>We are committed to integrity, excellence, and innovation, building lasting relationships through trust and reliability.</p>
+          </div>
+          <div className="values-boxes">
+            <div className="box">
               <p>Integrity</p>
               <span>
                 Success is built on strong principles, trust, honesty, and
                 ethics.
               </span>
             </div>
-          </div>
 
-          <div className="value-box">
-            <div className="value-icon">
-              <ion-icon name="game-controller-outline"></ion-icon>
-              <ion-icon name="trophy-outline"></ion-icon>
-            </div>
-            <div className="value-text">
-              <p>Commitment</p>
-              <span>
-                We passionately support the growth of youth and businesses with
-                responsibility.
-              </span>
-            </div>
-          </div>
-
-          <div className="value-box">
-            <div className="value-icon">
-              <ion-icon name="trophy-outline"></ion-icon>
-            </div>
-            <div className="value-text">
+            <div className="box">
               <p>Innovation</p>
               <span>
                 We innovate in coaching, fostering creativity and turning ideas
                 into opportunities.
+              </span>
+            </div>
+
+            <div className="box">
+              <p>Commitment</p>
+              <span>
+                We passionately support the growth of youth and businesses with
+                responsibility.
               </span>
             </div>
           </div>

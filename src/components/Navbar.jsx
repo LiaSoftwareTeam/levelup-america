@@ -146,7 +146,6 @@ export default function Navbar() {
             >
               <Link href="/about/us">About Us</Link>
               <Link href="/about/mission-values">Mission & Values</Link>
-              <Link href="/services/strategy">Our Values</Link>
             </div>
           </div>
           <div
@@ -182,6 +181,9 @@ export default function Navbar() {
             <div
               className={`dropdown-content ${consultingDropdown ? "show" : ""}`}
             >
+              <Link href="/advice/all">
+                All Events
+              </Link>
               <Link href="/advice/personal-development/personal-development-coaching">
                 Young Visionaries
               </Link>
@@ -224,12 +226,12 @@ export default function Navbar() {
               )}
             </Link>
             <div className={`dropdown-content ${teamDropdown ? "show" : ""}`}>
-              <Link href="/#team">Meet Our Team</Link>
+              {/* <Link href="/#team">Meet Our Team</Link> */}
               <Link href="/coaches/register">Be Part Of The Team</Link>
             </div>
           </div>
-          <Link href="/#testimonial">Testimonials</Link>
-          <Link href="/#contact">Contact</Link>
+          {/* <Link href="/#testimonial">Testimonials</Link>
+          <Link href="/#contact">Contact</Link> */}
         </div>
         <div className="user-profile">
           {userName ? (

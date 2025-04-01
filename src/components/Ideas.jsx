@@ -12,7 +12,7 @@ export default function Ideas() {
             transition={{ duration: 1 }}
             viewport={{ once: true }} // Se ejecuta solo cuando está en vista
           >
-            Unique <span>ideas</span> for you <span>bussines</span>
+            Unlock potential, <span>embrace</span> growth, create success
           </motion.h4>
           <div className="btn">
             <div className="btn-btn">
