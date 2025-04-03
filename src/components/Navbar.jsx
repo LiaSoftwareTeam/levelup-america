@@ -17,6 +17,7 @@ export default function Navbar() {
   const [consultingDropdown, setConsultingDropdown] = useState(false);
   const [servicesDropdown, setServicesDropdown] = useState(false);
   const [teamDropdown, setTeamDropdown] = useState(false);
+  const [successDropdown, setSuccessDropdown] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -227,7 +228,42 @@ export default function Navbar() {
               <Link href="/advice/training-programs">Training Programs</Link>
             </div>
           </div>
-          <Link href="/">Success</Link>
+          <div
+            className="dropdown"
+            onMouseEnter={() => !isMobile && setSuccessDropdown(true)}
+            onMouseLeave={() => !isMobile && setSuccessDropdown(false)}
+          >
+            <Link
+              href="/#success"
+              className="dropdown-trigger"
+              onClick={(e) => {
+                if (isMobile) {
+                  e.preventDefault();
+                  setSuccessDropdown(!successDropdown);
+                }
+              }}
+            >
+              Success
+              {isMobile && (
+                <ion-icon
+                  name="chevron-forward-outline"
+                  style={{
+                    marginLeft: "8px",
+                    verticalAlign: "middle",
+                    transition: "transform 0.3s ease",
+                    transform: successDropdown ? "rotate(90deg)" : "rotate(0)",
+                  }}
+                ></ion-icon>
+              )}
+            </Link>
+            <div
+              className={`dropdown-content ${successDropdown ? "show" : ""}`}
+            >
+              <Link href="/success/personal">Personal Success</Link>
+              <Link href="/success/business">Business Success</Link>
+              <Link href="/success/stories">Success Stories</Link>
+            </div>
+          </div>
           <div
             className="dropdown"
             onMouseEnter={() => !isMobile && setTeamDropdown(true)}
@@ -258,7 +294,7 @@ export default function Navbar() {
             </Link>
             <div className={`dropdown-content ${teamDropdown ? "show" : ""}`}>
               {/* <Link href="/#team">Meet Our Team</Link> */}
-              <Link href="/coaches/register">Be Part Of The Team</Link>
+              <Link href="/coaches/register">Apply</Link>
             </div>
           </div>
           {/* <Link href="/#testimonial">Testimonials</Link>

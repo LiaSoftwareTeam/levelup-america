@@ -9,14 +9,14 @@ export default function BusinessSuccess() {
       <Navbar />
       <div>
         <main>
-          <section className="hero">
+          <section className="hero personal">
             <div className="hero-content">
               <h1>Develop your career, boost your success</h1>
               <p>
                 Discover your true professional potential with our personalized
                 coaching program.
               </p>
-              <Link href="/advice/bussines" className="cta-button">
+              <Link href="/advice/personal-development/personal-development-coaching" className="cta-button">
                 Consulting for Personal Growth
               </Link>
             </div>
@@ -81,7 +81,7 @@ export default function BusinessSuccess() {
                   how to advance your career?
                 </h2>
                 <Link
-                  href="/information/businnes-coaching"
+                  href="/information/personal-coaching"
                   className="cta-button"
                   style={{ display: "inline-block" }}
                 >
