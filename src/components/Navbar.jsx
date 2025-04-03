@@ -6,6 +6,8 @@ import Script from "next/script";
 import Image from "next/image";
 import { auth } from "../app/firebase/config";
 import { AlignCenter } from "lucide-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPen } from "@fortawesome/free-solid-svg-icons"; // Import pencil icon
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -96,6 +98,36 @@ export default function Navbar() {
         src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
         strategy="lazyOnload"
       />
+      <a
+        href="https://panel-nine-kappa.vercel.app/"
+        className="edit"
+        id="edit"
+        style={{
+          position: "fixed",
+          bottom: "20px",
+          right: "20px",
+          backgroundColor: "#007bff",
+          color: "#fff",
+          padding: "10px",
+          borderRadius: "50%",
+          boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+          cursor: "pointer",
+          fontSize: "20px",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          width: "50px",
+          height: "50px",
+          textDecoration: "none",
+          transition: "background-color 0.3s ease",
+        }}
+        target="_blank"
+        rel="noopener noreferrer"
+        title="Editar"
+      >
+        <FontAwesomeIcon icon={faPen} />
+      </a>
+
       <nav className={`menu ${scrolled ? "scrolled" : ""}`}>
         <div className="logo">
           <Image
@@ -181,9 +213,7 @@ export default function Navbar() {
             <div
               className={`dropdown-content ${consultingDropdown ? "show" : ""}`}
             >
-              <Link href="/advice/all">
-                All Events
-              </Link>
+              <Link href="/advice/all">All Events</Link>
               <Link href="/advice/personal-development/personal-development-coaching">
                 Young Visionaries
               </Link>
@@ -197,6 +227,7 @@ export default function Navbar() {
               <Link href="/advice/training-programs">Training Programs</Link>
             </div>
           </div>
+          <Link href="/">Success</Link>
           <div
             className="dropdown"
             onMouseEnter={() => !isMobile && setTeamDropdown(true)}

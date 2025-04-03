@@ -1,6 +1,13 @@
 .background-content {
   height: 70vh;
-  background: url("../../../public/media/estudiantes.jpg");
+  background: url("../../../public/media/estudiantes.jpg") no-repeat center;
+  background-size: cover;
+}
+.busines {
+  background: url("../../../public/media/success/principalb.jpg");
+}
+.personal {
+  background: url("../../../public/media/success/secundaryb.jpg");
 }
 .background-content .filter {
   width: 100%;
@@ -45,6 +52,16 @@
     url("../../../public/media/estudiantes.jpg") no-repeat center;
   background-size: cover;
   background-blend-mode: darken;
+}
+.about-container .business {
+  background: url("../../../public/media/success/principalb.jpg") no-repeat
+    center;
+  background-size: cover;
+}
+.about-container .personal {
+  background: url("../../../public/media/success/secundaryb.jpg") no-repeat
+    center;
+  background-size: cover;
 }
 
 .about-container .about-text {
@@ -159,6 +176,48 @@
 .notification-content p {
   margin: 0;
   font-size: 16px;
+}
+.details-container {
+  max-width: 800px;
+  margin: 1rem;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+details {
+  background: #fff;
+  margin-bottom: 1rem;
+  border: 1px solid #d2d1d1;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+summary {
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.5rem;
+  color: #013d79;
+  margin-left: 10px;
+}
+
+.content {
+  padding: 1rem 0.5rem;
+  color: #6a6969;
+  line-height: 2;
+  letter-spacing: 0.4px;
+}
+
+@media (max-width: 768px) {
+  .details-container {
+    margin: 1rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .details-container {
+    width: 100%;
+    padding: 0 20px;
+  }
 }
 
 @keyframes slideIn {
@@ -354,6 +413,10 @@
     width: 100%;
     max-width: 300px; /* Limita el ancho en móviles */
   }
+
+  .about-container .about-img {
+    display: none;
+  }
 }
 
 @media (max-width: 1124px) {
@@ -475,7 +538,7 @@
   }
 
   .about-container .about-text {
-    padding: 20px 0;
+    padding: 20px;
   }
 
   .about-container .about-text h3 {
@@ -487,7 +550,11 @@
     padding: 0 15px;
     font-size: 16px;
   }
-
+  .about-container .about-text span {
+    font-size: 14px;
+    display: flex;
+    margin-left: -10px;
+  }
   .search-container {
     padding: 20px 15px;
   }
@@ -500,6 +567,3 @@
     font-size: 1.4rem;
   }
 }
-
-
-

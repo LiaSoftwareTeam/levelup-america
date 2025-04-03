@@ -201,6 +201,8 @@ body {
   .container {
     flex-direction: column;
     padding: 10px;
+    margin-top: 120px;
+    background: #000;
   }
 
   .toggle-filters {

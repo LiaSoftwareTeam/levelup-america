@@ -12,7 +12,7 @@ export default function RegisterE() {
 
   return (
     <div>
-      <div className="container">
+      <div className="container-reg">
         <header>
           <h1>Checkout</h1>
           <Link href="/" className="back-link">← Back</Link>
