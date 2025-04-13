@@ -139,7 +139,7 @@ export default function RegisterC() {
 
   return (
     <div>
-      <div className="container" ref={containerRef}>
+      <div className="container-register-coach" ref={containerRef}>
         <div className="product-type">
           <div className="header">
             <h2>Coaching Specialties</h2>

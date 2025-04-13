@@ -1,4 +1,5 @@
 import Script from "next/script";
+import Link from "next/link"
 import { motion } from "framer-motion";
 
 export default function Ideas() {
@@ -16,7 +17,7 @@ export default function Ideas() {
           </motion.h4>
           <div className="btn">
             <div className="btn-btn">
-              <p>View Now</p>
+              <Link href="/information/personal-coaching">View Now</Link>
               <ion-icon name="arrow-forward-outline"></ion-icon>
             </div>
           </div>
@@ -31,11 +32,11 @@ export default function Ideas() {
             viewport={{ once: true }}
           >
             <div className="card-title">
-              <p>Optimize Your Business Strategy</p>
+              <p>Elevate Your Career Path</p>
             </div>
             <div className="card-body">
               <span>
-                Boost your business with a clear focus and strategies that really work.
+              Advance with confidence using clear goals and strategies that drive success.
               </span>
               <ion-icon name="arrow-forward-outline"></ion-icon>
             </div>
@@ -49,11 +50,11 @@ export default function Ideas() {
             viewport={{ once: true }}
           >
             <div className="card-title">
-              <p>Enhance Your Leadership</p>
+              <p>Empowering Young Professionals</p>
             </div>
             <div className="card-body">
               <span>
-                Develop leadership skills that inspire your team and take your business to the next level.
+              Gain the skills and confidence to build a successful future.
               </span>
               <ion-icon name="arrow-forward-outline"></ion-icon>
             </div>

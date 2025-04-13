@@ -8,7 +8,7 @@ export default function DonationPopup() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsActive(true);
-    }, 4000);
+    }, 8000);
 
     return () => clearTimeout(timer);
   }, []);

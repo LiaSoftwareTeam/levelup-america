@@ -40,10 +40,17 @@ export default function () {
           </div>
           <div className="footer-section">
             <h3>Explore</h3>
-            <Link href="/coaches/register">Become a Member</Link>
+
+            <Link href="/advice/personal-development/personal-development-coaching">
+              Young Visionaries
+            </Link>
+            <Link href="/advice/personal-development/professional-future">
+                Professional Future
+              </Link>
             <Link href="/advice/bussines">Bussines Events</Link>
             <Link href="/advice/workshop">Workshop Events</Link>
             <Link href="/advice/corporate-events">Corporate Events</Link>
+            <Link href="/coaches/register">Become Coach Member</Link>
           </div>
           <div className="footer-section">
             <h3>Subscribe</h3>
@@ -54,7 +61,7 @@ export default function () {
             <div className="contact-info" style={{ marginTop: "10px" }}>
               <p>
                 Support:{" "}
-                <a href="mailto:needhelp@company.com">
+                <a href="mailto:contacup@levelup.america.com">
                   ContacUP@levelup.america.com
                 </a>
               </p>

@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import "../../about/about.css";
 import Footer from "@/components/Footer";
 import Notification from "@/components/Notification";
+import Link from "next/link";
 
 export default function about() {
   const [showNotification, setShowNotification] = useState(false);
@@ -57,6 +58,22 @@ export default function about() {
               that drives both immediate impact and long-term success. At Level
               Up America, we’re here to help you navigate the complexities of
               today’s business world and unlock your company’s true potential.
+              <Link
+                href="/success/business"
+                style={{
+                  padding: "7px 20px",
+                  color: "#f1f1f1",
+                  textDecoration: "none",
+                  background: "#0d66bf",
+                  display: "block",
+                  width: "150px",
+                  textAlign: "center",
+                  marginTop: "20px",
+                  borderRadius: "4px",
+                }}
+              >
+                Go To Page
+              </Link>
             </p>
 
             <div
@@ -99,28 +116,30 @@ export default function about() {
               <details>
                 <summary>How can coaching benefit my company?</summary>
                 <div class="content">
-                Coaching helps enhance leadership skills, improve team collaboration, and foster a culture of growth, leading to improved business performance.
+                  Coaching helps enhance leadership skills, improve team
+                  collaboration, and foster a culture of growth, leading to
+                  improved business performance.
                 </div>
               </details>
 
+             
               <details>
-                <summary>What does the coaching process involve?</summary>
+                <summary>
+                  Is coaching suitable for all levels within the company?
+                </summary>
                 <div class="content">
-                We work closely with your team to create tailored strategies, addressing specific challenges and ensuring measurable improvement in leadership and team dynamics.
-                </div>
-              </details>
-
-              <details>
-                <summary>Is coaching suitable for all levels within the company?</summary>
-                <div class="content">
-                Yes, our coaching programs are designed for everyone, from executives to new employees, ensuring that all levels of your organization benefit from growth and development.
+                  Yes, our coaching programs are designed for everyone, from
+                  executives to new employees, ensuring that all levels of your
+                  organization benefit from growth and development.
                 </div>
               </details>
 
               <details>
                 <summary>How do we get started with coaching?</summary>
                 <div class="content">
-                Contact us to discuss your company’s needs, and we will design a customized coaching program that aligns with your business goals and drives long-term success.
+                  Contact us to discuss your company’s needs, and we will design
+                  a customized coaching program that aligns with your business
+                  goals and drives long-term success.
                 </div>
               </details>
             </div>

@@ -17,10 +17,10 @@ export default function Navbar() {
   const [consultingDropdown, setConsultingDropdown] = useState(false);
   const [servicesDropdown, setServicesDropdown] = useState(false);
   const [teamDropdown, setTeamDropdown] = useState(false);
-  const [successDropdown, setSuccessDropdown] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [successDropdown, setSuccessDropdown] = useState(false);
 
   // Add ion-icons script
   useEffect(() => {
@@ -152,7 +152,7 @@ export default function Navbar() {
             onMouseLeave={() => !isMobile && setServicesDropdown(false)}
           >
             <Link
-              href="/#services"
+              href="#"
               className="dropdown-trigger"
               onClick={(e) => {
                 if (isMobile) {
@@ -179,6 +179,7 @@ export default function Navbar() {
             >
               <Link href="/about/us">About Us</Link>
               <Link href="/about/mission-values">Mission & Values</Link>
+              <Link href="/about/sponsors">Contributors</Link>
             </div>
           </div>
           <div
@@ -187,7 +188,7 @@ export default function Navbar() {
             onMouseLeave={() => !isMobile && setConsultingDropdown(false)}
           >
             <Link
-              href="/#events"
+              href="#"
               className="dropdown-trigger"
               onClick={(e) => {
                 if (isMobile) {
@@ -234,7 +235,7 @@ export default function Navbar() {
             onMouseLeave={() => !isMobile && setSuccessDropdown(false)}
           >
             <Link
-              href="/#success"
+              href="#"
               className="dropdown-trigger"
               onClick={(e) => {
                 if (isMobile) {
@@ -261,7 +262,6 @@ export default function Navbar() {
             >
               <Link href="/success/personal">Personal Success</Link>
               <Link href="/success/business">Business Success</Link>
-              <Link href="/success/stories">Success Stories</Link>
             </div>
           </div>
           <div
@@ -270,7 +270,7 @@ export default function Navbar() {
             onMouseLeave={() => !isMobile && setTeamDropdown(false)}
           >
             <Link
-              href="/#team"
+              href="#"
               className="dropdown-trigger"
               onClick={(e) => {
                 if (isMobile) {
@@ -287,14 +287,14 @@ export default function Navbar() {
                     marginLeft: "5px",
                     transition: "transform 0.3s ease",
                     verticalAlign: "middle",
-                    transform: teamDropdown ? "rotate(90deg)" : "rotate(0)",
+                    transform: teamDropdown ? "rotate(0)" : "rotate(-90deg)",
                   }}
                 ></ion-icon>
               )}
             </Link>
             <div className={`dropdown-content ${teamDropdown ? "show" : ""}`}>
-              {/* <Link href="/#team">Meet Our Team</Link> */}
-              <Link href="/coaches/register">Apply</Link>
+              <Link href="/coaches/team">Meet Our Professionals</Link>
+              <Link href="/coaches/register">Apply Now</Link>
             </div>
           </div>
           {/* <Link href="/#testimonial">Testimonials</Link>

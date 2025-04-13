@@ -666,9 +666,11 @@
 .idea-container .text-container .btn .btn-btn:hover {
   scale: 1.05;
 }
-.idea-container .text-container .btn .btn-btn p {
+.idea-container .text-container .btn .btn-btn a {
   letter-spacing: 1px;
   margin-left: 20px;
+  text-decoration: none;
+  color: #fff;
 }
 .idea-container .text-container .btn .btn-btn ion-icon {
   padding: 9px;

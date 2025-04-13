@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import "../../about/about.css";
 import Footer from "@/components/Footer";
 import Notification from "@/components/Notification";
+import Link from "next/link";
 
 export default function about() {
   const [showNotification, setShowNotification] = useState(false);
@@ -55,7 +56,11 @@ export default function about() {
               that drives both immediate results and long-term success. At Level
               Up America, we’re here to guide you in shaping your future and
               unlocking your full potential.
+
+              <Link href="/success/personal" style={{padding:"7px 20px", color:"#f1f1f1", textDecoration:"none", background:"#0d66bf", display:"block", width:"150px", textAlign:"center", marginTop:"20px", borderRadius:"4px"}}>Go To Page</Link>
             </p>
+
+          
 
             <div
               style={{
