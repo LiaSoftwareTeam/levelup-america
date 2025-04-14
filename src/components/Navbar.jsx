@@ -178,7 +178,7 @@ export default function Navbar() {
               className={`dropdown-content ${servicesDropdown ? "show" : ""}`}
             >
               <Link href="/about/us">About Us</Link>
-              <Link href="/about/mission-values">Mission & Values</Link>
+              <Link href="/about/mission-values">Mission, Vision & Values</Link>
               <Link href="/about/sponsors">Contributors</Link>
             </div>
           </div>

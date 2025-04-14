@@ -38,18 +38,18 @@ export default function Services() {
               {[
                 {
                   src: "/media/services/card1.jpg",
-                  subtitle: "YOUTH LEADERSHIP",
-                  text: "Empowering the Next Generation of Change-Makers",
+                  subtitle: "Leadership",
+                  text: "Youth who lead.",
                 },
                 {
                   src: "/media/services/card3.jpg",
-                  subtitle: "FUTURE READY",
-                  text: "Equipping Young Minds for Real-World Challenges",
+                  subtitle: "Future",
+                  text: "Youth with vision.",
                 },
                 {
                   src: "/media/services/card2.jpg",
-                  subtitle: "GROW & LEAD",
-                  text: "Coaching Youth to Thrive with Purpose and Confidence",
+                  subtitle: "Growth",
+                  text: "Youth in action.",
                 },
               ].map((card, index) => (
                 <motion.div

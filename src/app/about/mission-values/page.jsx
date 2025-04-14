@@ -33,13 +33,14 @@ export default function misionvalues() {
         <div className="mision">
           <div className="mision-img"></div>
           <div className="mision-text">
-            <span>mision</span>
-            <h3>Our Mission: Driving Your Growth and Success</h3>
+            <span>mission & vision</span>
+            <h3>Building Potential, Creating Impact</h3>
             <p>
-              Empower individuals across the Americas to elevate their lives and
-              ideas through personalized coaching, mentorship, and community
-              support—bridging personal and professional growth into a single
-              transformative journey.
+              Our mission is to empower people in America to elevate their lives
+              and ideas through mentorship, coaching, and community support.
+              With a vision of building a world where everyone reaches their
+              full potential, we promote a culture of growth, unity, and
+              positive transformation.
             </p>
 
             <div className="mision-images">

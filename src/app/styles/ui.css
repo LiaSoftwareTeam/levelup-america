@@ -405,7 +405,7 @@ select option {
   margin-bottom: 25px;
 }
 .news-row .text a {
-  padding: 8px 50px;
+  padding: 8px 15px;
   border: 3px solid var(--accent-color);
   text-decoration: none;
   color: var(--text-color);
