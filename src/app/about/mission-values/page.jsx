@@ -36,9 +36,10 @@ export default function misionvalues() {
             <span>mision</span>
             <h3>Our Mission: Driving Your Growth and Success</h3>
             <p>
-              Our mission is to empower young people and businesses through
-              mentorship, coaching, and tools to drive growth, leadership, and
-              positive change.
+              Empower individuals across the Americas to elevate their lives and
+              ideas through personalized coaching, mentorship, and community
+              support—bridging personal and professional growth into a single
+              transformative journey.
             </p>
 
             <div className="mision-images">
@@ -51,7 +52,10 @@ export default function misionvalues() {
         <div className="values">
           <div className="values-text">
             <h3>Our Values, Your Trust</h3>
-            <p>We are committed to integrity, excellence, and innovation, building lasting relationships through trust and reliability.</p>
+            <p>
+              We are committed to integrity, excellence, and innovation,
+              building lasting relationships through trust and reliability.
+            </p>
           </div>
           <div className="values-boxes">
             <div className="box">

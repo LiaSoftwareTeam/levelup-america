@@ -13,7 +13,7 @@ import Testimonial from "@/components/Testimonial";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import DonationPopup from "@/components/Popup";
-
+import Link from "next/link";
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -80,7 +80,9 @@ export default function Home() {
             <span>Your </span>
             <span>Mind </span>
           </h2>
-          <button>Read More</button>
+          <Link href="/about/us">
+            <button>Read More</button>
+          </Link>
         </div>
 
         <div className="box-decorator">
@@ -88,7 +90,7 @@ export default function Home() {
           <div className="decorator2"></div>
         </div>
       </section>
-      
+
       <About />
       <Services />
       <Ideas />
@@ -99,7 +101,7 @@ export default function Home() {
       {/* <Sponsors /> */}
       <Contact />
       <Footer />
-     <DonationPopup />
+      <DonationPopup />
     </>
   );
 }

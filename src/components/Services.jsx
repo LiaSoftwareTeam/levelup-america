@@ -25,69 +25,71 @@ export default function Services() {
 
   return (
     <div>
-      {mounted && <section className="services" id="services">
-        <div className="head-services">
-          <div className="services-title">
-            <span>Our Recent Work</span>
-            <p>New Success Stories</p>
+      {mounted && (
+        <section className="services" id="services">
+          <div className="head-services">
+            <div className="services-title">
+              <span>Our Recent Work</span>
+              <p>New Success Stories</p>
+            </div>
           </div>
-        </div>
-        <div className="body-services">
-          <div className="cards-contianer">
-            {[
-              {
-                src: "/media/card1.jpg",
-                subtitle: "LEADERSHIP",
-                text: "Empowering Business Leaders",
-              },
-              {
-                src: "/media/card3.jpg",
-                subtitle: "MANAGEMENT",
-                text: "Smart Business Growth",
-              },
-              {
-                src: "/media/card2.jpg",
-                subtitle: "STRATEGY",
-                text: "Winning Minds Coaching",
-              },
-            ].map((card, index) => (
-              <motion.div
-                key={index}
-                className="card"
-                variants={cardVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.2 }}
-                custom={index}
-              >
-                <div className="card-img">
-                  <Image
-                    src={card.src}
-                    width={400}
-                    height={250}
-                    alt={card.subtitle}
-                  />
-                </div>
-                <div className="card-text">
-                  <div>
-                    <div className="card-subtitle">
-                      <span>{card.subtitle}</span>
-                    </div>
-                    <div className="card-title">
-                      <div className="text">
-                        <p>{card.text}</p>
+          <div className="body-services">
+            <div className="cards-contianer">
+              {[
+                {
+                  src: "/media/services/card1.jpg",
+                  subtitle: "YOUTH LEADERSHIP",
+                  text: "Empowering the Next Generation of Change-Makers",
+                },
+                {
+                  src: "/media/services/card3.jpg",
+                  subtitle: "FUTURE READY",
+                  text: "Equipping Young Minds for Real-World Challenges",
+                },
+                {
+                  src: "/media/services/card2.jpg",
+                  subtitle: "GROW & LEAD",
+                  text: "Coaching Youth to Thrive with Purpose and Confidence",
+                },
+              ].map((card, index) => (
+                <motion.div
+                  key={index}
+                  className="card"
+                  variants={cardVariants}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.2 }}
+                  custom={index}
+                >
+                  <div className="card-img">
+                    <Image
+                      src={card.src}
+                      width={400}
+                      height={250}
+                      alt={card.subtitle}
+                    />
+                  </div>
+                  <div className="card-text">
+                    <div>
+                      <div className="card-subtitle">
+                        <span>{card.subtitle}</span>
                       </div>
-                      <div className="icon">
-                        <ArrowRight size={18} className="arrow-icon" />
+                      <div className="card-title">
+                        <div className="text">
+                          <p>{card.text}</p>
+                        </div>
+                        <div className="icon">
+                          <ArrowRight size={18} className="arrow-icon" />
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>}
+        </section>
+      )}
 
       <Script
         type="module"
@@ -114,7 +116,6 @@ const Accordion = () => {
     hidden: { opacity: 0, height: 0 },
     visible: { opacity: 1, height: "auto", transition: { duration: 0.5 } },
   };
-  
 
   return (
     <div className="accordion">

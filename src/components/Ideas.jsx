@@ -68,11 +68,11 @@ export default function Ideas() {
             viewport={{ once: true }}
           >
             <div className="card-title">
-              <p>Transform Your Company Culture</p>
+              <p>Transform Your Future</p>
             </div>
             <div className="card-body">
               <span>
-                Create a positive work environment focused on continuous growth for your team.
+              Build a mindset of growth, confidence, and purpose from a young age
               </span>
               <ion-icon name="arrow-forward-outline"></ion-icon>
             </div>

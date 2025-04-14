@@ -1,9 +1,10 @@
-"use client"
+"use client";
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import "../about.css";
 import Footer from "@/components/Footer";
 import Notification from "@/components/Notification";
+import Link from "next/link";
 
 export default function about() {
   const [showNotification, setShowNotification] = useState(false);
@@ -27,7 +28,9 @@ export default function about() {
       <div className="background-content">
         <div className="filter">
           <div>
-            <p>Our Commitment, <br /> Your Success</p>
+            <p>
+              Our Commitment, <br /> Your Success
+            </p>
           </div>
         </div>
       </div>
@@ -63,10 +66,60 @@ export default function about() {
               not only help people achieve their goals, but we foster a positive
               impact that transcends generations.
             </p>
+            <div
+              style={{ width: "100%", background: "#f1f1f1", height: "30px" }}
+            ></div>
+            <h3 style={{ paddingTop: "10px" }}>
+              Coaching & Mentoring Services
+            </h3>
+
+            <p>
+              At <strong>Level Up America</strong>, we offer a comprehensive
+              range of services designed to support individuals, families, and
+              professionals on their journey toward personal and professional
+              growth. Our Life Mentoring Guidance and Life Coaching services
+              focus on helping you define your goals, overcome obstacles, and
+              build a fulfilling life with purpose. Whether you're navigating
+              transitions, seeking clarity, or striving for a better version of
+              yourself, our mentors and coaches provide personalized support
+              every step of the way. For those facing deeper emotional or
+              psychological challenges, our Life Counseling services offer a
+              safe and confidential space to heal, grow, and thrive.
+            </p>
+            <p>
+              Our support also extends to the professional and family spheres.
+              Through Business Mentoring Guidance, entrepreneurs and
+              professionals gain valuable insights and strategies to grow their
+              businesses with confidence and accountability. Our Family Coaching
+              and Mentoring services help strengthen relationships and create a
+              harmonious family dynamic by fostering communication and joint
+              development. Lastly, our Whole Wellness approach promotes a
+              balanced lifestyle by integrating mind, body, and spirit—ensuring
+              that you don’t just grow in one area of life, but elevate your
+              entire being. At Level Up America, we guide you to become your
+              best self—personally, professionally, and holistically.
+              <Link
+                href="/coaches/team"
+                style={{
+                  padding: "7px 20px",
+                  color: "#f1f1f1",
+                  textDecoration: "none",
+                  background: "#0d66bf",
+                  display: "block",
+                  width: "290px",
+                  textAlign: "center",
+                  marginTop: "20px",
+                  borderRadius: "4px",
+                }}
+              >
+               Connect with a professional
+              </Link>
+            </p>
 
             <div
               style={{ width: "100%", background: "#f1f1f1", height: "30px" }}
             ></div>
+
             <h3 style={{ paddingTop: "10px" }}>Why choose LEVEL UP AMERICA?</h3>
 
             <p>
@@ -103,30 +156,58 @@ export default function about() {
           <div className="recent-posts">
             <h2>RECENT POST</h2>
 
-            <a href="#" className="post-item" onClick={(e) => handlePostClick(e, "Este post no está disponible por ahora")}>
-              <img src="/media/card1.jpg" alt="Post image" className="post-image" />
+            <a
+              href="#"
+              className="post-item"
+              onClick={(e) =>
+                handlePostClick(e, "Este post no está disponible por ahora")
+              }
+            >
+              <img
+                src="/media/card1.jpg"
+                alt="Post image"
+                className="post-image"
+              />
               <div className="post-content">
                 <h3 className="post-title">
-                How Young People Can Turn Their Dreams into Reality
+                  How Young People Can Turn Their Dreams into Reality
                 </h3>
                 <span className="post-date">Jan 01, 2026</span>
               </div>
             </a>
-            <a href="#" className="post-item" onClick={(e) => handlePostClick(e, "Este post no está disponible por ahora")}>
-              <img src="/media/card2.jpg" alt="Post image" className="post-image" />
+            <a
+              href="#"
+              className="post-item"
+              onClick={(e) =>
+                handlePostClick(e, "Este post no está disponible por ahora")
+              }
+            >
+              <img
+                src="/media/card2.jpg"
+                alt="Post image"
+                className="post-image"
+              />
               <div className="post-content">
                 <h3 className="post-title">
-                Building a Solid Path to Your Future
+                  Building a Solid Path to Your Future
                 </h3>
                 <span className="post-date">Jan 04, 2026</span>
               </div>
             </a>
-            <a href="#" className="post-item" onClick={(e) => handlePostClick(e, "Este post no está disponible por ahora")}>
-              <img src="/media/card3.jpg" alt="Post image" className="post-image" />
+            <a
+              href="#"
+              className="post-item"
+              onClick={(e) =>
+                handlePostClick(e, "Este post no está disponible por ahora")
+              }
+            >
+              <img
+                src="/media/card3.jpg"
+                alt="Post image"
+                className="post-image"
+              />
               <div className="post-content">
-                <h3 className="post-title">
-                Personal and Professional Growth
-                </h3>
+                <h3 className="post-title">Personal and Professional Growth</h3>
                 <span className="post-date">Jun 01, 2025</span>
               </div>
             </a>
