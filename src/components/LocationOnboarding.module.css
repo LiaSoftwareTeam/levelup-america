@@ -1,0 +1,82 @@
+.tip-location-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.tip-location-container {
+  background: white;
+  border-radius: 8px;
+  padding: 24px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.tip-location-content {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.tip-location-title {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.tip-location-description {
+  font-size: 16px;
+  color: #666;
+  line-height: 1.5;
+}
+
+.tip-location-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.tip-location-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.tip-location-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ddd;
+  transition: background-color 0.3s;
+}
+
+.tip-location-dot-active {
+  background: #4361ee;
+}
+
+.tip-location-buttons {
+  width: 100%;
+}
+
+.tip-location-button {
+  width: 100%;
+  padding: 12px 24px;
+  background: #4361ee;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.tip-location-button:hover {
+  background: #3651d4;
+}
