@@ -6,7 +6,7 @@ import styles from './LocationOnboarding.module.css';
 const tips = [
   {
     id: 1,
-    title: "Welcome to the Coach Map",
+    title: "Welcome to the Coaches map",
     description: "Here you can find the location of all our certified coaches."
   },
   {

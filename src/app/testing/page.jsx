@@ -123,7 +123,7 @@ export default function HomePage() {
                 own path.
               </p>
               <div className="btn-actions">
-                <a href="/" className="btn-action">
+                <Link href="/about/us" className="btn-action">
                   Learn about us{" "}
                   <ArrowRight
                     size={20}
@@ -132,8 +132,8 @@ export default function HomePage() {
                       padding: "6px",
                     }}
                   />
-                </a>
-                <a href="/" className="btn-action action-bg">
+                </Link>
+                <Link href="/advice/personal-development/personal-development-coaching" className="btn-action action-bg">
                   Get Coaching{" "}
                   <ArrowRight
                     size={20}
@@ -142,7 +142,7 @@ export default function HomePage() {
                       padding: "6px",
                     }}
                   />
-                </a>
+                </Link>
               </div>
             </div>
             <div
