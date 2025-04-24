@@ -45,13 +45,20 @@ export default function RootLayout({ children }) {
       <head>
         {/* Meta información */}
         <title>Level Up America - Coaching Empresarial y Personal</title>
-        <meta name="description" content="Impulsa tu vida y tu empresa con el coaching de Level Up America." />
+        <meta
+          name="description"
+          content="Impulsa tu vida y tu empresa con el coaching de Level Up America."
+        />
         <link rel="icon" href="/logo.png" type="image/png" />
+
+        {/* Ionicons Web Component */}
+      
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
         {children}
       </body>
     </html>
   );
 }
-

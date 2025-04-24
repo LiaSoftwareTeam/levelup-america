@@ -58,10 +58,10 @@ export default function Categories() {
     : articles.filter((article) => article.category === selectedCategory);
 
   return (
-    <div className="container" id='events'>
-      <header className="header">
+    <div className="container-categories" id='events'>
+      <header className="header-categories">
         <motion.h1 
-          className="title"
+          className="title-categories"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}

@@ -8,7 +8,7 @@ export default function DonationPopup() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsActive(true);
-    }, 8000);
+    }, 10000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -30,7 +30,10 @@ export default function DonationPopup() {
         strategy="lazyOnload"
       />
       <div className={`container-pp ${isActive ? "active" : ""}`}>
-        <div className={`popup-overlay ${isActive ? "active" : ""}`} id="qrPopup">
+        <div
+          className={`popup-overlay ${isActive ? "active" : ""}`}
+          id="qrPopup"
+        >
           <div className="close" onClick={closePopup}>
             ✖
           </div>

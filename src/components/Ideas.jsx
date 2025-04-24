@@ -12,7 +12,7 @@ export default function Ideas() {
             whileInView={{ opacity: 1, y: 0 }} // Se vuelve visible y sube
             transition={{ duration: 1 }}
             viewport={{ once: true }} // Se ejecuta solo cuando está en vista
-          >
+          > 
             Unlock potential, <span>embrace</span> growth, create success
           </motion.h4>
           <div className="btn">

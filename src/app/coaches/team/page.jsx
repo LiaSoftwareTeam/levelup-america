@@ -17,10 +17,7 @@ export default function BusinessSuccess() {
                 to help you grow professionally while making a meaningful impact
                 on others.
               </p>
-              <Link
-                href="/advice/personal-development/personal-development-coaching"
-                className="cta-button"
-              >
+              <Link href="/coaches/register" className="cta-button">
                 Become a Coach
               </Link>
             </div>
@@ -93,36 +90,37 @@ export default function BusinessSuccess() {
             <div className="row cards-row">
               <div className="card-top card">
                 <div className="date-card">
-                  <p style={{ background: "none", color: "transparent" }}>
-                    New
-                  </p>
+                  <p>New</p>
                 </div>
                 <div className="profile-card one"></div>
                 <div className="info-card">
-                  <p>Mary Lawson</p>
-                  <span>Personal coach</span>
+                  <p>Eldris Valenzuela</p>
+                  <span>Wellness and Nutrition Mentor</span>
                   <span className="description">
-                    Emotional intelligence, confidence building, and personal
-                    empowerment coach
+                    Empowering healthy habits for body, mind, and family
                   </span>
                 </div>
                 <div className="btn-action-card">
-                  <Link href="/">Get in touch</Link>
+                  <Link href="/coaches/team/eldris-valenzuela">
+                    Get in touch 
+                  </Link>
                 </div>
                 <div className="skills-card">
                   <p>Skills *</p>
                   <div className="skills-items">
                     <span>Empathy</span>
-                    <span>Confidence</span>
+                    <span>Family support</span>
                     <span>Awareness</span>
-                    <span>Listening</span>
+                    <span>Healthy routines</span>
                   </div>
                 </div>
               </div>
 
               <div className="card-top card">
                 <div className="date-card">
-                  <p>New</p>
+                <p style={{ background: "none", color: "transparent" }}>
+                    New
+                  </p>
                 </div>
                 <div className="profile-card two"></div>
                 <div className="info-card">

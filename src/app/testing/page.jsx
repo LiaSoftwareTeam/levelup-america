@@ -1,0 +1,242 @@
+"use client";
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import "./home.css";
+import { ArrowRight, Play } from "lucide-react";
+import Services from "@/components/Services";
+import Ideas from "@/components/Ideas";
+import Categories from "@/components/Categories";
+import Team from "@/components/Team";
+import Testimonial from "@/components/Testimonial";
+import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
+import DonationPopup from "@/components/Popup";
+
+export default function HomePage() {
+  const [scrolled, setScrolled] = useState(false);
+
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const images = [
+    "/media/img1.jpg",
+    "/media/img2.jpg",
+    "/media/img3.jpg",
+    "/media/img4.jpg",
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % images.length);
+    }, 8000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const handleSlideChange = (index) => {
+    setCurrentSlide(index);
+  };
+
+  const text = "SCROLL DOWN • SCROLL DOWN • ";
+  const chars = text.split("");
+  return (
+    <div>
+      <div>
+        <main className="min-h-screen relative overflow-hidden">
+          <section className="slideshow-section">
+            <div className="slideshow-container">
+              {images.map((image, index) => (
+                <div
+                  key={index}
+                  className={`slide ${index === currentSlide ? "active" : ""}`}
+                  style={{
+                    backgroundImage: `url(${image})`,
+                  }}
+                />
+              ))}
+            </div>
+            <div className="slide-controls">
+              {images.map((_, index) => (
+                <button
+                  key={index}
+                  className={`slide-control-btn ${
+                    index === currentSlide ? "active" : ""
+                  }`}
+                  onClick={() => handleSlideChange(index)}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
+          </section>
+        </main>
+        {/* menu section */}
+        <menu
+          className={`menu-home ${scrolled ? "scrolled" : ""}`}
+          id="menu-home"
+        >
+          <div className="menu-logo"></div>
+          <div className="links-home" id="link-home">
+            <span>Home</span>
+            <span>About</span>
+            <span>Consulting and Events</span>
+            <span>Success</span>
+            <span>Team</span>
+            {/* <Link href="/register">Register</Link> */}
+          </div>
+          <div
+            className="icon-menu"
+            id="icon-menu"
+            onClick={() => {
+              document.getElementById("menu-home").classList.toggle("active");
+              document.getElementById("icon-menu").classList.toggle("active");
+              document.getElementById("link-home").classList.toggle("active");
+            }}
+          >
+            <div className="line cross-y" id="cross-y"></div>
+            <div className="line cross-x" id="cross-x"></div>
+            <div className="line last"></div>
+          </div>
+        </menu>
+        <section className="home-section" id="home-section">
+          <div className="home-elements-container">
+            <div className="text-content">
+              <h1>
+                Developing <span>your mind</span> <br />
+                Elevating <span>your life</span>
+              </h1>
+              <p>
+                Awaken your potential, take control of your story, and stop
+                waiting. Start today to build the life you dream of, overcome
+                your limits, challenge your fears, and become the leader of your
+                own path.
+              </p>
+              <div className="btn-actions">
+                <a href="/" className="btn-action">
+                  Learn about us{" "}
+                  <ArrowRight
+                    size={20}
+                    className="btn-icon"
+                    style={{
+                      padding: "6px",
+                    }}
+                  />
+                </a>
+                <a href="/" className="btn-action action-bg">
+                  Get Coaching{" "}
+                  <ArrowRight
+                    size={20}
+                    className="btn-icon"
+                    style={{
+                      padding: "6px",
+                    }}
+                  />
+                </a>
+              </div>
+            </div>
+            <div
+              className="btn-down"
+              onClick={() => {
+                document
+                  .getElementById("about-section")
+                  .scrollIntoView({ behavior: "smooth" });
+              }}
+            >
+              <div className="scroll-btn">
+                <div className="scroll-circle">
+                  <div className="scroll-text">
+                    {chars.map((char, i) => (
+                      <span
+                        key={i}
+                        style={{ "--rotate": `${i * (360 / chars.length)}deg` }}
+                      >
+                        {char}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <div className="arrow-container">
+                  <ArrowRight
+                    size={45}
+                    className="arrow"
+                    style={{
+                      padding: "6px",
+                    }}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className="about-desc-section" id="about-section">
+          <div className="about-elements-container">
+            <div className="images-elements-about">
+              <div className="img">
+                <Play className="icon-play" />
+              </div>
+              <div className="decorator-img">
+                <div className="decorator"></div>
+                <div className="img img2">
+                  <Play className="icon-play" />
+                </div>
+              </div>
+            </div>
+            <div className="text-elements-about">
+              <div className="subtitle">
+                <span>about us</span>
+              </div>
+              <h2>
+                Discover <span>how to</span> change <span>your life</span>
+              </h2>
+              <p>
+                Through personalized mentoring and coaching, we help you gain
+                clarity, overcome challenges, and confidently pursue the life
+                you envision.
+              </p>
+
+              <Link href="/success/personal" className="list">
+                <ArrowRight className="list-about" />{" "}
+                <span>Path to personal success</span>
+              </Link>
+              <Link href="/success/business" className="list">
+                <ArrowRight className="list-about" />{" "}
+                <span>Professional success with purpose</span>
+              </Link>
+              <Link href="/coaches/team" className="list">
+                <ArrowRight className="list-about" />{" "}
+                <span>Get coaching with experts</span>
+              </Link>
+
+              <div className="ceo-profile">
+                <div className="img"></div>
+                <div className="info">
+                  <p>CEO & FUNDER</p>
+                  <span>Victor Familia</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <Services />
+      <Ideas />
+      <Categories />
+      <Testimonial />
+      <Team />
+      <Contact />
+      <Footer />
+      <DonationPopup />
+    </div>
+  );
+}
