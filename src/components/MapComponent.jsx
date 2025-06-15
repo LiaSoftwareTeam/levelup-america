@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
+import './MapComponent.css';
 
 const MapComponent = ({ coaches }) => {
   const mapRef = useRef(null);
@@ -55,20 +56,58 @@ const MapComponent = ({ coaches }) => {
         }
         const customIcon = createCustomIcon(iconUrl);
 
-        L.marker([coach.latitude, coach.longitude], { icon: customIcon })
-          .bindPopup(`
-            <div style="min-width: 200px; padding: 10px;">
-              <h3 style="margin: 0 0 10px 0; color: #333;">${coach.name}</h3>
-              <p style="margin: 5px 0; color: #666;">
-                <strong>Email:</strong> ${coach.email}
-              </p>
-              <p style="margin: 5px 0; color: #666;">
-                <strong>Type:</strong> ${coach.coachType}
-              </p>
-              <a href="${coach.profileUrl}" style="display: inline-block; background:#1f74ca; color: white; text-decoration: none; padding: 8px 16px; border-radius: 4px; margin-top: 10px; text-align: center; width: 100%; box-sizing: border-box;">Explore Profile</a>
+        const marker = L.marker([coach.latitude, coach.longitude], { icon: customIcon });
+        const popup = L.popup({
+          closeOnClick: true,
+          autoClose: true,
+          closeButton: true
+        }).setContent(`
+            <div style="min-width: 250px; padding: 16px; font-family: system-ui, -apple-system, sans-serif;">
+              <div style="display: flex; align-items: center; margin-bottom: 12px;">
+                <img src="${iconUrl}" style="width: 48px; height: 48px; border-radius: 50%; margin-right: 12px; object-fit: cover; border: 2px solid #1f74ca;" />
+                <h3 style="margin: 0; color: #1f74ca; font-size: 18px;">${coach.name}</h3>
+              </div>
+              <div style="background: #f5f7fa; border-radius: 8px; padding: 12px; margin: 12px 0;">
+                <p style="margin: 0 0 8px 0; color: #4a5568; display: flex; align-items: center;">
+                  <svg style="width: 16px; height: 16px; margin-right: 8px;" viewBox="0 0 24 24" fill="none" stroke="#4a5568" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                  ${coach.email}
+                </p>
+                <p style="margin: 0; color: #4a5568; display: flex; align-items: center;">
+                  <svg style="width: 16px; height: 16px; margin-right: 8px;" viewBox="0 0 24 24" fill="none" stroke="#4a5568" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                  ${coach.coachType}
+                </p>
+              </div>
+              <a href="${coach.profileUrl}" style="
+                display: inline-block;
+                background: #1f74ca;
+                color: white;
+                text-decoration: none;
+                padding: 10px 20px;
+                border-radius: 6px;
+                width: 100%;
+                box-sizing: border-box;
+                text-align: center;
+                font-weight: 500;
+                transition: all 0.2s ease;
+                box-shadow: 0 2px 4px rgba(31, 116, 202, 0.2);
+              " onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 4px 8px rgba(31, 116, 202, 0.3)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 2px 4px rgba(31, 116, 202, 0.2)'">Explore Profile</a>
             </div>
-          `)
-          .addTo(mapInstanceRef.current);
+          `);
+        
+        marker.bindPopup(popup).addTo(mapInstanceRef.current);
+        
+        // Add click event listener to close popup when clicking outside
+        mapInstanceRef.current.on('click', (e) => {
+          if (!popup._container?.contains(e.originalEvent.target)) {
+            marker.closePopup();
+          }
+        });
       });
     }
 
@@ -107,6 +146,7 @@ const MapComponent = ({ coaches }) => {
         border-radius: 8px;
         box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         max-width: 300px;
+        min-width: 300px;
         text-align: center;
         z-index: 1001;
       `;
@@ -132,12 +172,22 @@ const MapComponent = ({ coaches }) => {
         setShowLocationButton(false);
         navigator.geolocation.getCurrentPosition(
           (position) => {
-            const { latitude, longitude } = position.coords;
+            const { latitude, longitude, accuracy } = position.coords;
             setUserLocation({ latitude, longitude });
-            mapInstanceRef.current.setView([latitude, longitude], 10);
+            // Set a more appropriate zoom level based on accuracy
+            const zoomLevel = accuracy > 5000 ? 8 : accuracy > 1000 ? 10 : 13;
+            mapInstanceRef.current.setView([latitude, longitude], zoomLevel);
             if (userMarkerRef.current) {
               userMarkerRef.current.remove();
             }
+            // Add accuracy circle
+            const accuracyCircle = L.circle([latitude, longitude], {
+              radius: accuracy,
+              weight: 1,
+              color: '#1f74ca',
+              fillColor: '#1f74ca',
+              fillOpacity: 0.1
+            }).addTo(mapInstanceRef.current);
             const userIcon = L.divIcon({
               html: '<div style="background-color: #1f74ca; width: 20px; height: 20px; border-radius: 50%; border: 3px solid white; box-shadow: 0 0 10px rgba(0,0,0,0.3);"></div>',
               className: 'user-location-marker',
@@ -208,28 +258,23 @@ const MapComponent = ({ coaches }) => {
       <div ref={mapRef} style={{ width: '100%', height: '100%' }} />
       {showLocationButton && (
         <button
+          className="FindNearestCoaches"
           onClick={handleLocationRequest}
-          style={{
-            position: 'absolute',
-            bottom: '20px',
-            right: '20px',
-            padding: '10px 20px',
-            backgroundColor: '#1f74ca',
-            color: 'white',
-            border: 'none',
-            borderRadius: '4px',
-            cursor: 'pointer',
-            boxShadow: '0 2px 4px rgba(0,0,0,0.2)',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '8px',
-            zIndex: 1000
-          }}
         >
-          {/* <span style={{ display: 'inline-block', width: '16px', height: '16px' }}>
-            
-          </span> */}
-          My Location
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg>
+          Find Nearest Coaches
         </button>
       )}
     </div>

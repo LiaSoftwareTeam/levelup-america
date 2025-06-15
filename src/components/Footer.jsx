@@ -18,7 +18,7 @@ export default function () {
         <div className="footer-content">
           <div className="footer-section">
             <div className="footer-logo">
-              Level Up <br /> America
+              Vivelup <br /> America
             </div>
             <p className="message">
               Great Experience for Building Customers & Businesses
@@ -40,42 +40,33 @@ export default function () {
           </div>
           <div className="footer-section">
             <h3>Explore</h3>
-
-            <Link href="/advice/personal-development/personal-development-coaching">
-              Young Visionaries
-            </Link>
-            <Link href="/advice/personal-development/professional-future">
-                Professional Future
-              </Link>
-            <Link href="/advice/bussines">Bussines Events</Link>
-            <Link href="/advice/workshop">Workshop Events</Link>
-            <Link href="/advice/corporate-events">Corporate Events</Link>
-            <Link href="/coaches/register">Become Coach Member</Link>
+            <Link href="/events">All Events</Link>
+            <Link href="/mentorship/vivelup-next">Vivelup Next</Link>
+            <Link href="/mentorship/vivelup-family">Vivelup Family</Link>
+            <Link href="/mentorship/brainstorming">Vivelup Brainstorming</Link>
+            <Link href="/mentorship/mind-motion">Mind & Motion</Link>
           </div>
           <div className="footer-section">
-            <h3>Subscribe</h3>
+            <h3>Contact</h3>
             <p>
-              Subscribe and follow us on our social media to receive our latest
-              articles and resources.
+              Get in touch with us through our contact channels for any
+              questions, support, or collaborations. We’re here to help!
             </p>
             <div className="contact-info" style={{ marginTop: "10px" }}>
               <p>
-                Support:{" "}
-                <a href="mailto:contacup@levelup.america.com">
-                  ContacUP@levelup.america.com
+                Get Information:{" "}
+                <a href="mailto:info@levelup.com">
+                  info@vivelup.com
                 </a>
               </p>
               <p>Phone: +1 ( 206 ) 333 - 0000</p>
             </div>
           </div>
           <div className="footer-section">
-            <h3>Contact</h3>
+            <h3>Location</h3>
             <a href="https://maps.app.goo.gl/3E2s8BRctjbf7fP16">
               137 French st, New Brunswick, NJ
             </a>
-            <a href="#">Terms of use</a>
-            <a href="#">Privacy policy</a>
-            <a href="#">Help</a>
           </div>
         </div>
       </footer>

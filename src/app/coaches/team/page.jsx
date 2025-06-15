@@ -56,7 +56,7 @@ export default function BusinessSuccess() {
                   </span>
                 </div>
                 <div className="btn-action-card">
-                  <Link href="/">Get in touch</Link>
+                  <Link href="/coaches/team/victor-familia">Get in touch</Link>
                 </div>
                 <div className="skills-card">
                   <p>Skills *</p>
@@ -116,7 +116,7 @@ export default function BusinessSuccess() {
                 </div>
               </div>
 
-              <div className="card-top card">
+              {/* <div className="card-top card">
                 <div className="date-card">
                 <p style={{ background: "none", color: "transparent" }}>
                     New
@@ -143,9 +143,9 @@ export default function BusinessSuccess() {
                     <span>Strategy</span>
                   </div>
                 </div>
-              </div>
+              </div> */}
 
-              <div className="card-top card">
+              {/* <div className="card-top card">
                 <div className="date-card">
                   <p style={{ background: "none", color: "transparent" }}>
                     New
@@ -171,7 +171,7 @@ export default function BusinessSuccess() {
                     <span>Focus</span>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </section>
 
@@ -243,7 +243,7 @@ export default function BusinessSuccess() {
             </div>
           </section>
 
-          <section className="container-general">
+          {/* <section className="container-general">
             <div className="row news-row" style={{ marginTop: "3rem" }}>
               <div className="video-container" style={{ height: "400px" }}>
                 <div className="video">
@@ -270,7 +270,7 @@ export default function BusinessSuccess() {
                 </a>
               </div>
             </div>
-          </section>
+          </section> */}
 
           <section className="newsletter">
             <div className="container-general">

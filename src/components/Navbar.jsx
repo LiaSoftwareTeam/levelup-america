@@ -197,7 +197,7 @@ export default function Navbar() {
                 }
               }}
             >
-              Consulting and events
+              Developments and events
               {isMobile && (
                 <ion-icon
                   name="chevron-forward-outline"
@@ -215,18 +215,13 @@ export default function Navbar() {
             <div
               className={`dropdown-content ${consultingDropdown ? "show" : ""}`}
             >
-              <Link href="/advice/all">All Events</Link>
-              <Link href="/advice/personal-development/personal-development-coaching">
-                Young Visionaries
+              <Link href="/events">All Events</Link>
+              <Link href="/mentorship/vivelup-next">Vivelup Next</Link>
+              <Link href="/mentorship/vivelup-family">Vivelup Family</Link>
+              <Link href="/mentorship/brainstorming">
+                Vivelup Brainstorming
               </Link>
-              <Link href="/advice/personal-development/academic">Academic</Link>
-              <Link href="/advice/personal-development/professional-future">
-                Professional Future
-              </Link>
-              <Link href="/advice/bussines">Business</Link>
-              <Link href="/advice/workshop">Workshops</Link>
-              <Link href="/advice/corporate-events">Corporate Events</Link>
-              <Link href="/advice/training-programs">Training Programs</Link>
+              <Link href="/mentorship/mind-motion">Mind & Motion</Link>
             </div>
           </div>
           <div

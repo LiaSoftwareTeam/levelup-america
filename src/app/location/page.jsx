@@ -1,17 +1,16 @@
 'use client';
 
 import dynamic from 'next/dynamic';
-import { useEffect } from 'react';
+import { useState } from 'react';
 import styles from './location.module.css';
 import LocationOnboarding from '../../components/LocationOnboarding';
+import FilterPanel from '@/components/FilterPanel';
 
-// Dynamically import the Map component with SSR disabled
 const MapComponent = dynamic(() => import('../../components/MapComponent'), {
   ssr: false,
   loading: () => <div className={styles.mapLoading}>Loading map...</div>
 });
 
-// Sample coach data
 const coachesData = [
   { 
     id: 1, 
@@ -151,11 +150,18 @@ const coachesData = [
 ];
 
 const LocationPage = () => {
+  const [filteredCoaches, setFilteredCoaches] = useState(coachesData);
+
+  const handleFilterChange = (newFilteredCoaches) => {
+    setFilteredCoaches(newFilteredCoaches);
+  };
+
   return (
     <div className={styles.containerlocation}>
       <h1 className={styles.titlelocation}></h1>
+      <FilterPanel coaches={coachesData} onFilterChange={handleFilterChange} />
       <div className={styles.mapContainer}>
-        <MapComponent coaches={coachesData} />
+        <MapComponent coaches={filteredCoaches} />
       </div>
       <LocationOnboarding />
     </div>

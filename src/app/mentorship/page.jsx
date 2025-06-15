@@ -1,7 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Script from "next/script";
 import Link from "next/link";
-import "../../../../pages.css";
+import "./mentoring.css";
 import Footer from "@/components/Footer";
 export default function Bussines() {
   return (

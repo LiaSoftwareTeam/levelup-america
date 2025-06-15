@@ -1,5 +1,5 @@
 import Script from "next/script";
-import Link from "next/link"
+import Link from "next/link";
 import { motion } from "framer-motion";
 
 export default function Ideas() {
@@ -12,7 +12,7 @@ export default function Ideas() {
             whileInView={{ opacity: 1, y: 0 }} // Se vuelve visible y sube
             transition={{ duration: 1 }}
             viewport={{ once: true }} // Se ejecuta solo cuando está en vista
-          > 
+          >
             Unlock potential, <span>embrace</span> growth, create success
           </motion.h4>
           <div className="btn">
@@ -36,9 +36,10 @@ export default function Ideas() {
             </div>
             <div className="card-body">
               <span>
-              Advance with confidence using clear goals and strategies that drive success.
+                Advance with confidence using clear goals and strategies that
+                drive success.
               </span>
-              <ion-icon name="arrow-forward-outline"></ion-icon>
+              {/* <Link href="/"><ion-icon name="arrow-forward-outline"></ion-icon></Link> */}
             </div>
           </motion.div>
 
@@ -54,9 +55,9 @@ export default function Ideas() {
             </div>
             <div className="card-body">
               <span>
-              Gain the skills and confidence to build a successful future.
+                Gain the skills and confidence to build a successful future.
               </span>
-              <ion-icon name="arrow-forward-outline"></ion-icon>
+              {/* <ion-icon name="arrow-forward-outline"></ion-icon> */}
             </div>
           </motion.div>
 
@@ -72,9 +73,10 @@ export default function Ideas() {
             </div>
             <div className="card-body">
               <span>
-              Build a mindset of growth, confidence, and purpose from a young age
+                Build a mindset of growth, confidence, and purpose from a young
+                age
               </span>
-              <ion-icon name="arrow-forward-outline"></ion-icon>
+              {/* <ion-icon name="arrow-forward-outline"></ion-icon> */}
             </div>
           </motion.div>
 
@@ -90,9 +92,10 @@ export default function Ideas() {
             </div>
             <div className="card-body">
               <span>
-                Implement coaching techniques that streamline processes and boost efficiency.
+                Implement coaching techniques that streamline processes and
+                boost efficiency.
               </span>
-              <ion-icon name="arrow-forward-outline"></ion-icon>
+              {/* <ion-icon name="arrow-forward-outline"></ion-icon> */}
             </div>
           </motion.div>
         </div>

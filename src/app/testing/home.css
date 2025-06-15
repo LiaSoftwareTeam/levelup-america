@@ -64,7 +64,8 @@
   width: 100vw;
   height: 110%;
   opacity: 0;
-  transition: opacity 1.5s ease-in-out, transform 7s ease-in-out;
+  transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 8s cubic-bezier(0.4, 0, 0.2, 1);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -73,7 +74,7 @@
 
 .slide.active {
   opacity: 1;
-  transform: scale(1.1);
+  transform: scale(1.15);
 }
 
 .slide-controls {
@@ -183,23 +184,98 @@
   display: flex;
   flex-direction: column;
   padding: 50px 150px;
-  background: rgba(19, 39, 64, 0.9);
+  background: rgba(19, 39, 64, 0.4);
   visibility: hidden;
+  transition-delay: 0.9s;
 }
+.menu-home .links-home .menu-item {
+  position: relative;
+  margin-bottom: 20px;
+}
+
 .menu-home .links-home span {
   font-size: 30px;
   font-weight: 500;
-  color: var(--light-gray);
-  line-height: 10;
-  transition: 0.1s;
+  color: transparent;
+  line-height: 1.5;
+  transition: 0.5s;
+  cursor: pointer;
+  display: block;
+  margin-bottom: 10px;
 }
+
+.menu-home .links-home .drop-links {
+  padding: 3px 5px;
+  margin: -10px 30px;
+  transition: 0.7s;
+  height: 0;
+  overflow: hidden;
+}
+
+.menu-home .links-home .drop-links a .bullet {
+  padding: 4px;
+  border-radius: 50%;
+  background: rgb(0, 183, 255);
+  margin-right: 10px;
+}
+.menu-home .links-home .drop-links a {
+  text-transform: capitalize;
+  display: block;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 20px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+/* id links */
+#aboutlinks.active {
+  height: 120px;
+}
+#development.active {
+  height: 160px;
+}
+#eventslinks.active {
+  height: 40px;
+}
+#successlinks.active {
+  height: 80px;
+}
+#teamlinks.active {
+  height: 50px;
+}
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.menu-home .links-home .dropdown a {
+  color: var(--light-gray);
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.2s ease;
+}
+
+.menu-home .links-home .dropdown a:hover {
+  color: var(--accent-color);
+}
+
 .menu-home .links-home.active {
+  transition-delay: 0s;
   visibility: visible;
   background: rgba(19, 39, 64, 0.95);
 }
 .menu-home .links-home.active span {
   line-height: 2;
   transition: 1.5s;
+  visibility: visible;
+  color: var(--light-gray);
 }
 /* home section start*/
 .home-section {
@@ -261,7 +337,7 @@
   justify-content: space-between;
   font-size: 14.5px;
   letter-spacing: 1.2px;
-  transition: 0.3s;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   font-weight: 500;
 }
 .btn-action:hover {
@@ -516,6 +592,9 @@
   .home-elements-container p {
     margin: 30px 0;
   }
+  .menu-home {
+    background: rgba(19, 39, 64, 0.95);
+  }
 
   .btn-action {
     padding: 6px 18px;
@@ -588,13 +667,43 @@
     height: 75px;
   }
   .menu-home.active {
- box-shadow: 0;
+    box-shadow: 0;
   }
 
   .menu-home .links-home.active {
     top: 70px;
   }
+  .menu-home .links-home .drop-links a .bullet {
+    padding: 3px;
+  }
+  .menu-home .links-home .drop-links a {
+    font-size: 17px;
+  }
+  .menu-home .links-home .drop-links {
+    padding: 3px 5px;
+    margin: -20px 30px;
+    transition: 1s;
+    height: 0;
+    overflow: hidden;
+  }
+  #development.active{
+    height: 180px;
+  }
+  /* #eventslinks.active {
+    height: 150px;b
+  } */
+  /* id links */
+  /* #aboutlinks.active {
+  height: 80px;
+}
 
+#successlinks.active {
+  height: 80px;
+  background: red;
+}
+#teamlinks.active {
+  height: 80px;
+} */
   .home-elements-container h1 {
     font-size: 50px;
   }
@@ -607,6 +716,8 @@
   }
   .menu-home .links-home span {
     font-size: 25px;
+    transition: 0.6s;
+    visibility: hidden;
   }
   .menu-home .links-home.active span {
     line-height: 3;

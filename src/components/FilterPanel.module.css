@@ -1,0 +1,291 @@
+.filterPanel {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  z-index: 1000;
+  width: 320px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.filterPanel.open .filterContent {
+  max-height: 500px;
+  opacity: 1;
+  padding: 24px;
+}
+
+.toggleButton {
+  width: 100%;
+  padding: 18px 24px;
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  color: #2d3748;
+  transition: all 0.2s ease;
+}
+
+.toggleButton:hover {
+  background-color: rgba(248, 249, 250, 0.8);
+}
+
+.filterIcon {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3'%3E%3C/polygon%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.8;
+}
+
+.filterContent {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.searchBar {
+  margin-bottom: 20px;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 16px 20px;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 14px;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: #1f74ca;
+  box-shadow: 0 0 0 2px rgba(31, 116, 202, 0.2);
+}
+
+.filterGroup {
+  margin-bottom: 16px;
+}
+
+.select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 14px;
+  font-size: 14px;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.select:focus {
+  outline: none;
+  border-color: #1f74ca;
+  box-shadow: 0 0 0 2px rgba(31, 116, 202, 0.2);
+}
+
+.locationButton {
+  width: 100%;
+  padding: 12px 16px;
+  background-color: #1f74ca;
+  color: white;
+  border: none;
+  border-radius: 14px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  transition: all 0.2s ease;
+}
+
+.locationButton:hover {
+  background-color: #1a5fa3;
+}
+
+.locationIcon {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z'%3E%3C/path%3E%3Ccircle cx='12' cy='10' r='3'%3E%3C/circle%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.clearButton {
+  width: 100%;
+  padding: 12px 16px;
+  background-color: #f3f4f6;
+  color: #4b5563;
+  border: none;
+  border-radius: 14px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.clearButton:hover:not(:disabled) {
+  background-color: #e5e7eb;
+}
+
+.clearButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@keyframes resetAnimation {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(0.98);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.resetting {
+  animation: resetAnimation 0.3s ease;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 16px 20px;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 14px;
+  font-size: 16px;
+  color: #1a202c;
+  background-color: rgba(255, 255, 255, 0.95);
+  transition: all 0.3s ease;
+  letter-spacing: -0.01em;
+}
+
+.searchInput::placeholder {
+  color: #a0aec0;
+  font-weight: 500;
+}
+
+.searchInput:hover {
+  border-color: rgba(49, 130, 206, 0.4);
+  background-color: #ffffff;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: #4299e1;
+  box-shadow: 0 0 0 4px rgba(66, 153, 225, 0.15);
+  background-color: #ffffff;
+}
+
+.filterGroup {
+  margin-bottom: 20px;
+}
+
+.select {
+  width: 100%;
+  padding: 16px 20px;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 14px;
+  font-size: 16px;
+  color: #1a202c;
+  background-color: rgba(255, 255, 255, 0.95);
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232d3748' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 20px center;
+  background-size: 16px;
+  transition: all 0.3s ease;
+  letter-spacing: -0.01em;
+  font-weight: 500;
+}
+
+.select:hover {
+  border-color: rgba(49, 130, 206, 0.4);
+  background-color: #ffffff;
+}
+
+.select:focus {
+  outline: none;
+  border-color: #4299e1;
+  box-shadow: 0 0 0 4px rgba(66, 153, 225, 0.15);
+  background-color: #ffffff;
+}
+
+.locationButton {
+  width: 100%;
+  padding: 16px 20px;
+  border: none;
+  border-radius: 14px;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #4299e1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.locationButton:hover {
+  background-color: #3182ce;
+}
+
+.locationIcon {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z'%3E%3C/path%3E%3Ccircle cx='12' cy='10' r='3'%3E%3C/circle%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+@media (max-width: 750px) {
+  .filterPanel {
+    position: fixed;
+    width: calc(100% - 60px);
+    right: 15px;
+    left: 50px;
+    top: 11px;
+    padding: 3px 0;
+    max-height: 65px;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    border-radius:  5px;
+  }
+
+  .filterPanel.open {
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+
+  .filterPanel.open .filterContent {
+    max-height: calc(80vh - 60px);
+    opacity: 1;
+    padding: 24px;
+  }
+
+  .filterContent {
+    max-height: 0;
+    opacity: 0;
+    padding: 0;
+    transition: all 0.3s ease-out;
+  }
+}

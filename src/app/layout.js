@@ -13,26 +13,26 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Level Up America - Coaching Empresarial y Personal",
+  title: "Vivelup America - Business and Personal Coaching",
   description:
-    "Impulsa tu vida y tu empresa con el coaching de Level Up America. Ofrecemos servicios personalizados para el desarrollo personal, liderazgo, y crecimiento empresarial.",
+    "Boost your life and your business with coaching from Vivelup America. We offer personalized services for personal development, leadership, and business growth.",
   keywords:
-    "coaching empresarial, coaching personal, desarrollo profesional, coaching para empresas, crecimiento personal, liderazgo, coaching de vida, desarrollo de habilidades, transformación empresarial, coaching ejecutivo",
-  author: "Level Up America",
+    "business coaching, personal coaching, professional development, business coaching, personal growth, leadership, life coaching, skills development, business transformation, executive coaching",
+  author: "Vivelup America",
   robots: "index, follow",
   og: {
-    title: "Level Up America - Coaching Empresarial y Personal",
+    title: "Vivelup America - Business and Personal Coaching",
     description:
-      "Transforma tu vida y negocio con nuestros programas de coaching diseñados para alcanzar el éxito personal y profesional.",
+      "Transform your life and business with our coaching programs designed to achieve personal and professional success.",
     url: "https://www.levelupamerica.com",
     image: "https://www.levelupamerica.com/images/og-image.jpg",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Level Up America - Coaching Empresarial y Personal",
+    title: "Vivelup America - Business and Personal Coaching",
     description:
-      "Lleva tu vida y empresa al siguiente nivel con coaching personalizado.",
+      "Take your life and business to the next level with personalized coaching.",
     image: "https://www.levelupamerica.com/images/twitter-card.jpg",
   },
 };
@@ -44,15 +44,14 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         {/* Meta información */}
-        <title>Level Up America - Coaching Empresarial y Personal</title>
+        <title>Vivelup America - Business and Personal Coaching</title>
         <meta
           name="description"
-          content="Impulsa tu vida y tu empresa con el coaching de Level Up America."
+          content="Boost your life and business with coaching from Vivelup America."
         />
         <link rel="icon" href="/logo.png" type="image/png" />
 
         {/* Ionicons Web Component */}
-      
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}

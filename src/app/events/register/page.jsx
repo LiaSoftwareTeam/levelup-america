@@ -1,119 +1,208 @@
-"use client"
-import "./style.css"
-import { useState } from 'react';
+"use client";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import Link from "next/link";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import "../events.css";
 
-export default function RegisterE() {
-  const [paymentMethod, setPaymentMethod] = useState('credit');
-
-  const handlePaymentChange = (event) => {
-    setPaymentMethod(event.target.value);
+export default function EventRegister() {
+  const searchParams = useSearchParams();
+  const eventId = searchParams.get("id");
+  
+  const [formData, setFormData] = useState({
+    nombre: "",
+    apellido: "",
+    email: "",
+    telefono: "",
+    ocupacion: "",
+    comentarios: ""
+  });
+  
+  const [eventInfo, setEventInfo] = useState({
+    title: "",
+    date: ""
+  });
+  
+  const [submitted, setSubmitted] = useState(false);
+  
+  useEffect(() => {
+    // En un entorno real, aquí se haría una llamada a la API para obtener los detalles del evento
+    // Por ahora, usamos datos estáticos basados en el ID
+    if (eventId === "conferencia-liderazgo") {
+      setEventInfo({
+        title: "A Young Man for History",
+        date: "1 July, 2025"
+      });
+    } else if (eventId === "taller-desarrollo-personal") {
+      setEventInfo({
+        title: "Taller de Desarrollo Personal",
+        date: "22 de Enero, 2024"
+      });
+    } else if (eventId === "seminario-innovacion") {
+      setEventInfo({
+        title: "Seminario de Innovación Tecnológica",
+        date: "10 de Febrero, 2024"
+      });
+    } else if (eventId === "encuentro-networking") {
+      setEventInfo({
+        title: "Encuentro de Networking Profesional",
+        date: "5 de Marzo, 2024"
+      });
+    } else {
+      // Si no se encuentra el ID, redirigir o mostrar mensaje
+      setEventInfo({
+        title: "Evento no encontrado",
+        date: ""
+      });
+    }
+  }, [eventId]);
+  
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
   };
-
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Aquí iría la lógica para enviar los datos a un servidor
+    console.log("Datos del formulario:", { eventId, ...formData });
+    // Simulamos un envío exitoso
+    setSubmitted(true);
+  };
+  
+  if (!eventId) {
+    return (
+      <div>
+        <Navbar />
+        <div className="register-container">
+          <div className="register-title">
+            <h1>Evento no encontrado</h1>
+            <p>El evento que buscas no existe o ha sido eliminado.</p>
+            <Link href="/events" style={{ 
+              display: "inline-block", 
+              marginTop: "20px",
+              padding: "10px 20px",
+              backgroundColor: "#0d66bf",
+              color: "white",
+              borderRadius: "4px",
+              textDecoration: "none"
+            }}>
+              Volver a Eventos
+            </Link>
+          </div>
+        </div>
+        <Footer />
+      </div>
+    );
+  }
+  
   return (
     <div>
-      <div className="container-reg">
-        <header>
-          <h1>Checkout</h1>
-          <Link href="/" className="back-link">← Back</Link>
-        </header>
-
-        <main className="checkout-container">
-          <div className="checkout-form">
-            <div className="form-section">
-              <h2>Basic Informations</h2>
-              <input type="text" placeholder="Full name" />
-              <input type="email" placeholder="Email address" />
-              <input type="password" placeholder="Password" />
-            </div>
-
-            <div className="form-section">
-              <h2>Payment Details</h2>
-              <div className="payment-options">
-                <label className="radio-container">
-                  <input 
-                    type="radio" 
-                    name="payment" 
-                    value="credit" 
-                    checked={paymentMethod === 'credit'} 
-                    onChange={handlePaymentChange} 
-                  />
-                  <span className="radio-label">Credit card</span>
-                </label>
-                <label className="radio-container">
-                  <input 
-                    type="radio" 
-                    name="payment" 
-                    value="paypal" 
-                    checked={paymentMethod === 'paypal'} 
-                    onChange={handlePaymentChange} 
-                  />
-                  <span className="radio-label">PayPal</span>
-                </label>
-              </div>
-
-              {/* Conditionally render the Credit Card form or PayPal button */}
-              {paymentMethod === 'credit' && (
-                <div id="credit-card-form">
-                  <input type="text" placeholder="Name on card" />
-                  <input type="text" placeholder="Card number" />
-                  <div className="card-details">
-                    <input type="text" placeholder="Expiry date" />
-                    <input type="text" placeholder="CVC" />
-                  </div>
-                </div>
-              )}
-
-              {paymentMethod === 'paypal' && (
-                <div id="paypal-button">
-                  <button className="paypal-btn">Pay with PayPal</button>
-                </div>
-              )}
-            </div>
+      <Navbar />
+      <div className="register-container">
+        {submitted ? (
+          <div className="register-title">
+            <h1>¡Registro Exitoso!</h1>
+            <p>Gracias por registrarte en {eventInfo.title}. Te hemos enviado un correo con los detalles del evento.</p>
+            <Link href="/events" style={{ 
+              display: "inline-block", 
+              marginTop: "20px",
+              padding: "10px 20px",
+              backgroundColor: "#0d66bf",
+              color: "white",
+              borderRadius: "4px",
+              textDecoration: "none"
+            }}>
+              Volver a Eventos
+            </Link>
           </div>
-
-          <div className="summary-card">
-            <h2>Summary</h2>
-            <div className="course-item">
-              <div className="course-info">
-                <div className="course-icon">CS</div>
-                <div className="course-details">
-                  <h3>Masterclass</h3>
-                  <span className="price">$109</span>
-                </div>
-              </div>
+        ) : (
+          <>
+            <div className="register-title">
+              <h1>Registro para {eventInfo.title}</h1>
+              <p>Completa el formulario para asegurar tu lugar en este evento el {eventInfo.date}</p>
             </div>
-            <div className="course-item">
-              <div className="course-info">
-                <div className="course-icon">MT</div>
-                <div className="course-details">
-                  <h3>Materials</h3>
-                  <span className="price">$10</span>
-                </div>
+            
+            <form className="register-form" onSubmit={handleSubmit}>
+              <div className="form-group">
+                <label htmlFor="nombre">Nombre*</label>
+                <input 
+                  type="text" 
+                  id="nombre" 
+                  name="nombre" 
+                  value={formData.nombre}
+                  onChange={handleChange}
+                  required 
+                />
               </div>
-            </div>
-            <div className="coupon-section">
-              <input type="text" placeholder="Coupon code" />
-              <button className="apply-btn">Apply</button>
-            </div>
-            <div className="price-summary">
-              <div className="price-row">
-                <span>Subtotal</span>
-                <span>$119</span>
+              
+              <div className="form-group">
+                <label htmlFor="apellido">Apellido*</label>
+                <input 
+                  type="text" 
+                  id="apellido" 
+                  name="apellido" 
+                  value={formData.apellido}
+                  onChange={handleChange}
+                  required 
+                />
               </div>
-              <div className="price-row">
-                <span>Discount</span>
-                <span>$0</span>
+              
+              <div className="form-group">
+                <label htmlFor="email">Correo Electrónico*</label>
+                <input 
+                  type="email" 
+                  id="email" 
+                  name="email" 
+                  value={formData.email}
+                  onChange={handleChange}
+                  required 
+                />
               </div>
-              <div className="price-row total">
-                <span>Total</span>
-                <span>$119</span>
+              
+              <div className="form-group">
+                <label htmlFor="telefono">Teléfono*</label>
+                <input 
+                  type="tel" 
+                  id="telefono" 
+                  name="telefono" 
+                  value={formData.telefono}
+                  onChange={handleChange}
+                  required 
+                />
               </div>
-            </div>
-            <button className="checkout-btn">Checkout Now</button>
-          </div>
-        </main>
+              
+              <div className="form-group">
+                <label htmlFor="ocupacion">Ocupación</label>
+                <input 
+                  type="text" 
+                  id="ocupacion" 
+                  name="ocupacion" 
+                  value={formData.ocupacion}
+                  onChange={handleChange}
+                />
+              </div>
+              
+              <div className="form-group">
+                <label htmlFor="comentarios">Comentarios o Preguntas</label>
+                <textarea 
+                  id="comentarios" 
+                  name="comentarios" 
+                  value={formData.comentarios}
+                  onChange={handleChange}
+                ></textarea>
+              </div>
+              
+              <button type="submit" className="form-submit">Completar Registro</button>
+            </form>
+          </>
+        )}
       </div>
+      <Footer />
     </div>
   );
 }

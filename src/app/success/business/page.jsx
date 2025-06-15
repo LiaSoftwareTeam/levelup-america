@@ -63,7 +63,7 @@ export default function BusinessSuccess() {
                     <li>Personalized approach for each company</li>
                     <li>Measurable and sustainable results</li>
                   </ul>
-                  <Link href="/advice/all" className="cta-button">
+                     <Link href="/events" className="cta-button">
                     Start now with advice
                   </Link>
                 </div>
@@ -82,7 +82,7 @@ export default function BusinessSuccess() {
             <div className="container-success">
               <div style={{ maxWidth: "800px", margin: "0 auto" }}>
                 <h2 style={{ marginBottom: "20px" }}>
-                  Are you interested in learning more about Level Up America and
+                  Are you interested in learning more about Vivelup America and
                   how to improve your business?
                 </h2>
                 <Link

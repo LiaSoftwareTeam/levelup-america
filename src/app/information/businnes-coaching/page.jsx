@@ -43,18 +43,18 @@ export default function about() {
             <h3>Who We Are: Driving Growth, Shaping Success</h3>
             <p>
               At Level Up America, we are dedicated to helping businesses reach
-              their full potential through personalized coaching and development
-              programs. Our experienced team works closely with leaders and
-              organizations to address specific challenges, improve leadership
-              capabilities, and foster a culture of growth and success. We
-              believe that with the right support and guidance, any business can
-              overcome obstacles and achieve remarkable results.
+              their full potential through personalized mentorship and
+              development programs. Our experienced team works closely with
+              leaders and organizations to address specific challenges, improve
+              leadership capabilities, and foster a culture of growth and
+              success. We believe that with the right support and guidance, any
+              business can overcome obstacles and achieve remarkable results.
             </p>
             <p>
               Our approach focuses on creating sustainable strategies that align
               with your company’s goals, ensuring that each step leads to
               measurable improvement. From enhancing team collaboration to
-              refining executive decision-making, we provide tailored coaching
+              refining executive decision-making, we provide tailored mentorship
               that drives both immediate impact and long-term success. At Level
               Up America, we’re here to help you navigate the complexities of
               today’s business world and unlock your company’s true potential.
@@ -114,39 +114,38 @@ export default function about() {
             <div class="details-container">
               <h2 style={{ marginBottom: "10px" }}>FAQs</h2>
               <details>
-                <summary>How can coaching benefit my company?</summary>
+                <summary>How can mentorship benefit my company?</summary>
                 <div class="content">
-                  Coaching helps enhance leadership skills, improve team
+                  Mentorship helps enhance leadership skills, improve team
                   collaboration, and foster a culture of growth, leading to
                   improved business performance.
                 </div>
               </details>
 
-             
               <details>
                 <summary>
-                  Is coaching suitable for all levels within the company?
+                  Is mentorship suitable for all levels within the company?
                 </summary>
                 <div class="content">
-                  Yes, our coaching programs are designed for everyone, from
+                  Yes, our mentorship programs are designed for everyone, from
                   executives to new employees, ensuring that all levels of your
                   organization benefit from growth and development.
                 </div>
               </details>
 
               <details>
-                <summary>How do we get started with coaching?</summary>
+                <summary>How do we get started with mentorship?</summary>
                 <div class="content">
                   Contact us to discuss your company’s needs, and we will design
-                  a customized coaching program that aligns with your business
+                  a customized mentorship program that aligns with your business
                   goals and drives long-term success.
                 </div>
               </details>
             </div>
           </div>
 
-          <div className="recent-posts">
-            <h2>RECENT POST</h2>
+         <div className="recent-posts">
+            <h2>Upcoming Mentorships</h2>
 
             <a
               href="#"
@@ -156,65 +155,19 @@ export default function about() {
               }
             >
               <img
-                src="/media/card1.jpg"
+                src="/media/services/card2.jpg"
                 alt="Post image"
                 className="post-image"
               />
               <div className="post-content">
                 <h3 className="post-title">
-                  How Young People Can Turn Their Dreams into Reality
+                  A Young Man for History, Purpose, and Legacy
                 </h3>
-                <span className="post-date">Jan 01, 2026</span>
-              </div>
-            </a>
-            <a
-              href="#"
-              className="post-item"
-              onClick={(e) =>
-                handlePostClick(e, "Este post no está disponible por ahora")
-              }
-            >
-              <img
-                src="/media/card2.jpg"
-                alt="Post image"
-                className="post-image"
-              />
-              <div className="post-content">
-                <h3 className="post-title">
-                  Building a Solid Path to Your Future
-                </h3>
-                <span className="post-date">Jan 04, 2026</span>
-              </div>
-            </a>
-            <a
-              href="#"
-              className="post-item"
-              onClick={(e) =>
-                handlePostClick(e, "Este post no está disponible por ahora")
-              }
-            >
-              <img
-                src="/media/card3.jpg"
-                alt="Post image"
-                className="post-image"
-              />
-              <div className="post-content">
-                <h3 className="post-title">Personal and Professional Growth</h3>
-                <span className="post-date">Jun 01, 2025</span>
+                <span className="post-date">1 July, 2025</span>
               </div>
             </a>
           </div>
-          <div className="tag-cloud">
-            <p>TAG CLOUD</p>
-            <div className="tag-cloud-content">
-              <a href="#">Growth</a>
-              <a href="#">Mentoring</a>
-              <a href="#">Leadership</a>
-              <a href="#">Innovation</a>
-              <a href="#">Empowerment</a>
-              <a href="#">Success</a>
-            </div>
-          </div>
+       
         </div>
       </div>
       <Footer />

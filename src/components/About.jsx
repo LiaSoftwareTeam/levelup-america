@@ -37,7 +37,7 @@ export default function About() {
             viewport={{ once: true, amount: 0.5 }}
           >
             <span>
-              If you're looking for an opportunity to transform your life, both personally and professionally, <strong style={{color:"#383838"}}>LEVEL UP AMERICA</strong> is the ideal place to start. Our mission is to empower you by providing the tools, support, and guidance you need to achieve your dreams and successfully develop your projects.
+              If you're looking for an opportunity to transform your life, both personally and professionally, <strong style={{color:"#383838"}}>Vivelup America</strong> is the ideal place to start. Our mission is to empower you by providing the tools, support, and guidance you need to achieve your dreams and successfully develop your projects.
             </span>
             <br />
             <span>
@@ -45,7 +45,7 @@ export default function About() {
             </span>
             <div className="promotion-profile">
               <img src="/media/personal/victor familia.webp" alt="" />
-              <span>Victor Familia, <strong>CEO</strong> <br />of <strong>Level Up America</strong></span>
+              <span>Victor Familia, <strong>CEO</strong> <br />of <strong>Vivelup America</strong></span>
             </div>
           </motion.div>
         </motion.div>

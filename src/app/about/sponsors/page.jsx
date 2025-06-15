@@ -52,7 +52,7 @@ export default function BusinessSuccess() {
                     padding: "0 10px",
                   }}
                 >
-                  Are you interested in learning more about Level Up America and
+                  Are you interested in learning more about Vivelup America and
                   how your support helps build better futures?
                 </h2>
               </div>
@@ -254,7 +254,7 @@ export default function BusinessSuccess() {
             <div className="general-container">
               <div style={{ maxWidth: "800px", margin: "0 auto" }}>
                 <h2 style={{ marginBottom: "20px", padding: "10px" }}>
-                  Want to learn more about Level Up America and grow your
+                  Want to learn more about Vivelup America and grow your
                   impact? Join a movement that's expanding opportunity—your
                   action today can change someone's tomorrow.
                 </h2>

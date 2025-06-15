@@ -42,7 +42,7 @@ export default function about() {
             <h3>Who We Are: Guiding Growth, Achieving Dreams</h3>
             <p>
               At Level Up America, we are dedicated to helping young individuals
-              reach their full potential through personalized coaching and
+              reach their full potential through personalized mentorship and
               development programs. Our experienced team works closely with you
               to tackle challenges, build confidence, and foster a growth
               mindset. We believe that with the right support, every young
@@ -52,15 +52,27 @@ export default function about() {
               Our approach focuses on creating sustainable strategies that align
               with your personal aspirations, ensuring that each step leads to
               meaningful progress. From enhancing your skills to building a
-              strong foundation for your career, we provide tailored coaching
+              strong foundation for your career, we provide tailored mentorship
               that drives both immediate results and long-term success. At Level
               Up America, we’re here to guide you in shaping your future and
               unlocking your full potential.
-
-              <Link href="/success/personal" style={{padding:"7px 20px", color:"#f1f1f1", textDecoration:"none", background:"#0d66bf", display:"block", width:"150px", textAlign:"center", marginTop:"20px", borderRadius:"4px"}}>Go To Page</Link>
+              <Link
+                href="/success/personal"
+                style={{
+                  padding: "7px 20px",
+                  color: "#f1f1f1",
+                  textDecoration: "none",
+                  background: "#0d66bf",
+                  display: "block",
+                  width: "150px",
+                  textAlign: "center",
+                  marginTop: "20px",
+                  borderRadius: "4px",
+                }}
+              >
+                Go To Page
+              </Link>
             </p>
-
-          
 
             <div
               style={{
@@ -100,32 +112,36 @@ export default function about() {
             <div class="details-container">
               <h2 style={{ marginBottom: "10px" }}>FAQs</h2>
               <details>
-                <summary>How can coaching help me?</summary>
+                <summary>How can mentorship help me?</summary>
                 <div class="content">
-                Coaching helps you overcome challenges, build confidence, and develop the skills needed to achieve your personal and professional goals.
+                  Mentorship helps you overcome challenges, build confidence, and
+                  develop the skills needed to achieve your personal and
+                  professional goals.
                 </div>
               </details>
 
               <details>
-                <summary>What can I expect from the coaching process?</summary>
+                <summary>What can I expect from the mentorship process?</summary>
                 <div class="content">
-                You’ll receive personalized guidance and strategies tailored to your unique aspirations, helping you grow both personally and professionally.
+                  You’ll receive personalized guidance and strategies tailored
+                  to your unique aspirations, helping you grow both personally
+                  and professionally.
                 </div>
               </details>
 
-              
-
               <details>
-                <summary>Is coaching only for career development?</summary>
+                <summary>Is mentorship only for career development?</summary>
                 <div class="content">
-                No, our coaching programs focus on various aspects, including skill development, confidence-building, and personal growth, all aimed at unlocking your potential.
+                  No, our mentorship programs focus on various aspects, including
+                  skill development, confidence-building, and personal growth,
+                  all aimed at unlocking your potential.
                 </div>
               </details>
             </div>
           </div>
 
           <div className="recent-posts">
-            <h2>RECENT POST</h2>
+            <h2>Upcoming Mentorships</h2>
 
             <a
               href="#"
@@ -135,65 +151,19 @@ export default function about() {
               }
             >
               <img
-                src="/media/card1.jpg"
+                src="/media/services/card2.jpg"
                 alt="Post image"
                 className="post-image"
               />
               <div className="post-content">
                 <h3 className="post-title">
-                  How Young People Can Turn Their Dreams into Reality
+                  A Young Man for History, Purpose, and Legacy
                 </h3>
-                <span className="post-date">Jan 01, 2026</span>
-              </div>
-            </a>
-            <a
-              href="#"
-              className="post-item"
-              onClick={(e) =>
-                handlePostClick(e, "Este post no está disponible por ahora")
-              }
-            >
-              <img
-                src="/media/card2.jpg"
-                alt="Post image"
-                className="post-image"
-              />
-              <div className="post-content">
-                <h3 className="post-title">
-                  Building a Solid Path to Your Future
-                </h3>
-                <span className="post-date">Jan 04, 2026</span>
-              </div>
-            </a>
-            <a
-              href="#"
-              className="post-item"
-              onClick={(e) =>
-                handlePostClick(e, "Este post no está disponible por ahora")
-              }
-            >
-              <img
-                src="/media/card3.jpg"
-                alt="Post image"
-                className="post-image"
-              />
-              <div className="post-content">
-                <h3 className="post-title">Personal and Professional Growth</h3>
-                <span className="post-date">Jun 01, 2025</span>
+                <span className="post-date">1 July, 2025</span>
               </div>
             </a>
           </div>
-          <div className="tag-cloud">
-            <p>TAG CLOUD</p>
-            <div className="tag-cloud-content">
-              <a href="#">Growth</a>
-              <a href="#">Mentoring</a>
-              <a href="#">Leadership</a>
-              <a href="#">Innovation</a>
-              <a href="#">Empowerment</a>
-              <a href="#">Success</a>
-            </div>
-          </div>
+     
         </div>
       </div>
       <Footer />

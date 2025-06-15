@@ -1,7 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Script from "next/script";
 import Link from "next/link";
-import "../../../../pages.css";
+import "../mentoring.css";
 import Footer from "@/components/Footer";
 export default function Bussines() {
   return (
@@ -19,54 +19,42 @@ export default function Bussines() {
       <Navbar />
       <div className="advice-container">
         <div className="advice-description">
-          <div className="video-description graduate">
+          <div className="video-description family">
             <div className="filter">
-              <Link href="/events/register">
+              {/* <Link href="/events/register">
                 Register Now <ion-icon name="arrow-forward-outline"></ion-icon>
-              </Link>
+              </Link> */}
             </div>
           </div>
           <div className="header-advice">
             <div className="header-advice-tag">
-              <span>Youths</span>
+              <span>Family</span>
             </div>
-            <div className="header-advice-date-people">
-              <div>
-                <ion-icon name="calendar-clear-outline"></ion-icon>{" "}
-                <span>July 1st, 2025</span>
-              </div>
-              {/* <span className="line">|</span> */}
-              <div>
-                {/* <ion-icon name="people-outline"></ion-icon> */}
-                {/* <span>16/30 registered persons</span> */}
-              </div>
-            </div>
+
             <div className="title">
-              <h4>The Beginning of a Great Story</h4>
+              <h4>Vivelup Family: Families Growing Together</h4>
             </div>
             <div className="advice-body">
               <div className="info">
                 <p>
-                  Starting July 1st, 2025, we invite you to be part of a
-                  transformative journey. This is your moment to turn passion
-                  into purpose and challenges into stepping stones. In a world
-                  full of uncertainty, you don’t have to walk alone—we are here
-                  to guide, support, and empower you. Whether you're an aspiring
-                  leader, a creator, or simply someone looking for a chance to
-                  grow, this initiative is built to help you unlock your
-                  potential and take that first step toward the life you've
-                  imagined.
+                  Vivelup Family is a mentorship experience designed to
+                  strengthen the most essential human bond: the family. Through
+                  intentional dinner gatherings, guided conversations, and
+                  practical tools, families come together to rediscover the
+                  power of connection, listening, and shared growth. In these
+                  encounters, each member finds a voice, a role, and a renewed
+                  sense of belonging.
                 </p>
                 <br />
 
                 <p>
-                  You are not just another young person with dreams—you are a
-                  story in the making. Through mentorship, resources, and a
-                  community that believes in your value, we’ll help you write
-                  the chapters of your future with courage and confidence.
-                  Because making history doesn’t start with luck—it starts with
-                  choice, vision, and the will to act. And that journey begins
-                  now
+                  This space nurtures emotional intelligence, communication, and
+                  mutual respect within the home. Vivelup Family helps families
+                  move beyond routine into purpose—transforming everyday
+                  moments, like a dinner, into opportunities for reflection,
+                  unity, and joy. It’s a journey of building stronger ties,
+                  unlocking the collective potential of the family, and creating
+                  a legacy of love and intention.
                 </p>
               </div>
             </div>
@@ -75,7 +63,7 @@ export default function Bussines() {
               <div className="top-footer">
                 <div className="theme">
                   <p>Themes</p>
-                  <span>Mindset</span>
+                  <span>Families</span>
                   {/* <span></span> */}
                 </div>
                 <div className="social-media">
@@ -88,21 +76,20 @@ export default function Bussines() {
                   <a href="#">
                     <ion-icon name="mail-outline"></ion-icon>
                   </a>
-                 
                 </div>
               </div>
 
               <div className="advice-goaction">
                 <div>
-                  <p> From idea to action</p>
+                  <p>Every dinner, a new beginning</p>
                 </div>
                 <div>
-                  <p>Turn challenges into opportunities</p>
+                  <p>Stronger bonds. Deeper roots</p>
                 </div>
               </div>
 
               <div className="consulter-info">
-                <div className="consuler-title">
+                {/* <div className="consuler-title">
                   <p>Coaches</p>
                 </div>
                 <div className="colsulter">
@@ -111,9 +98,9 @@ export default function Bussines() {
                   </div>
                   <div className="info">
                     <div className="title-info">
-                      <p>Victor Familia</p>
-                      {/* <a href="#">More Info</a> */}
-                    </div>
+                      <p>Victor Familia</p> */}
+                {/* <a href="#">More Info</a> */}
+                {/* </div>
                     <div className="consuler-body">
                       <span>
                         Helps people unlock their full potential, push
@@ -122,7 +109,7 @@ export default function Bussines() {
                       </span>
                     </div>
                   </div>
-                </div>
+                </div> */}
 
                 {/* <div className="colsulter">
                   <div className="image">
@@ -151,26 +138,26 @@ export default function Bussines() {
         <div className="advice-aditional-info">
           <div className="more-advices">
             <div className="subtitle">
-              <p>More Advices</p>
+              <p>Upcoming Mentorships</p>
             </div>
             <Link href="/advice/bussines">
               <div className="advice-box">
                 <div className="image">
-                  <img src="/media/card3.jpg" alt="" />
+                  <img src="/media/services/card2.jpg" alt="" />
                 </div>
                 <div className="box-info">
                   <div className="box-date">
                     <ion-icon name="calendar-clear-outline"></ion-icon>
-                    <span>2 May, 2025</span>
+                    <span>1 July, 2025</span>
                   </div>
                   <div className="box-title">
-                    <p>Innovative Strategies to Grow and Maximize Results</p>
+                    <p>A Young Man for History, Purpose, and Legacy</p>
                   </div>
                 </div>
               </div>
             </Link>
             {/*  */}
-            <Link href="/advice/corporate-events">
+            {/* <Link href="/advice/corporate-events">
               <div className="advice-box">
                 <div className="image">
                   <img src="/media/card2.jpg" alt="" />
@@ -185,9 +172,9 @@ export default function Bussines() {
                   </div>
                 </div>
               </div>
-            </Link>
+            </Link> */}
             {/*  */}
-            <Link href="/advice/training-programs">
+            {/* <Link href="/advice/training-programs">
               <div className="advice-box">
                 <div className="image">
                   <img src="/media/card1.jpg" alt="" />
@@ -202,31 +189,29 @@ export default function Bussines() {
                   </div>
                 </div>
               </div>
-            </Link>
+            </Link> */}
             {/*  */}
           </div>
 
           <div className="categories">
-            <p>consultancies by category</p>
+            <p>Mentorship by category</p>
+            <Link href="/mentorship/vivelup-family" className="selected">
+              Family Mentorship
+              <ion-icon name="chevron-forward-outline"></ion-icon>
+            </Link>
+            <Link href="/mentorship/vivelup-next">
+              Youth Mentorship
+              <ion-icon name="chevron-forward-outline"></ion-icon>
+            </Link>
 
-            <span className="selected">
-              Productivity<ion-icon name="chevron-forward-outline"></ion-icon>
-            </span>
-            <span>
-              Leadership<ion-icon name="chevron-forward-outline"></ion-icon>
-            </span>
-            <span>
-              Collaboration<ion-icon name="chevron-forward-outline"></ion-icon>
-            </span>
-            <span>
-              Strategy<ion-icon name="chevron-forward-outline"></ion-icon>
-            </span>
-            <span>
-              Innovation<ion-icon name="chevron-forward-outline"></ion-icon>
-            </span>
-            <span>
-              Other<ion-icon name="chevron-forward-outline"></ion-icon>
-            </span>
+            <Link href="/mentorship/brainstorming">
+              Innovation Mentorship
+              <ion-icon name="chevron-forward-outline"></ion-icon>
+            </Link>
+            <Link href="/mentorship/mind-motion">
+              Mind & Motion Mentorship
+              <ion-icon name="chevron-forward-outline"></ion-icon>
+            </Link>
           </div>
         </div>
       </div>

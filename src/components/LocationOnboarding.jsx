@@ -12,7 +12,7 @@ const tips = [
   {
     id: 2,
     title: "Find Your Nearest Coach",
-    description: "Explore the map to discover available coaches in your area."
+    description: "Explore the map to discover available Coaches in your area."
   },
   {
     id: 3,

@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import "./home.css";
 import { ArrowRight, Play } from "lucide-react";
+import { motion } from "framer-motion";
 import Services from "@/components/Services";
 import Ideas from "@/components/Ideas";
 import Categories from "@/components/Categories";
@@ -11,6 +12,7 @@ import Testimonial from "@/components/Testimonial";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import DonationPopup from "@/components/Popup";
+import Loader from "@/components/Loader";
 
 export default function HomePage() {
   const [scrolled, setScrolled] = useState(false);
@@ -53,6 +55,7 @@ export default function HomePage() {
   const chars = text.split("");
   return (
     <div>
+      <Loader />
       <div>
         <main className="min-h-screen relative overflow-hidden">
           <section className="slideshow-section">
@@ -88,11 +91,87 @@ export default function HomePage() {
         >
           <div className="menu-logo"></div>
           <div className="links-home" id="link-home">
-            <span>Home</span>
-            <span>About</span>
-            <span>Consulting and Events</span>
-            <span>Success</span>
-            <span>Team</span>
+            <span
+              onClick={() => {
+                document
+                  .getElementById("aboutlinks")
+                  .classList.toggle("active");
+              }}
+            >
+              About
+            </span>
+            <div id="aboutlinks" className="drop-links">
+              <Link href="/about/us">
+                <div className="bullet"></div>About US
+              </Link>
+              <Link href="/about/mission-values">
+                <div className="bullet"></div>Mission, Vision & Values
+              </Link>
+              <Link href="/about/sponsors">
+                <div className="bullet"></div>Contributors
+              </Link>
+            </div>
+
+            <span
+              onClick={() => {
+                document
+                  .getElementById("eventslinks")
+                  .classList.toggle("active");
+              }}
+            >
+              Consulting and Events
+            </span>
+
+            <div id="eventslinks" className="drop-links">
+              <Link href="/advice/personal-development/personal-development-coaching">
+                <div className="bullet"></div>Youth Events
+              </Link>
+              <Link href="/advice/bussines">
+                <div className="bullet"></div>Business Events
+              </Link>
+            </div>
+            <span
+              onClick={() => {
+                document
+                  .getElementById("successlinks")
+                  .classList.toggle("active");
+              }}
+            >
+              Success
+            </span>
+            <div id="successlinks" className="drop-links">
+              <Link href="/success/personal">
+                <div className="bullet"></div> Personal Success
+              </Link>
+              <Link href="/success/business">
+                <div className="bullet"></div>Business Success
+              </Link>
+            </div>
+            <span
+              onClick={() => {
+                document.getElementById("teamlinks").classList.toggle("active");
+              }}
+            >
+              Team
+            </span>
+            <div id="teamlinks" className="drop-links">
+              <Link href="/coaches/team">
+                <div className="bullet"></div>Meet our Professionals
+              </Link>
+              {/* <Link href="/">
+                <div className="bullet"></div>Apply Now
+              </Link> */}
+            </div>
+            <span
+              onClick={() => {
+                alert("The contact email is currently unavailable.");
+              }}
+            >
+              Contact
+            </span>
+
+            {/*  */}
+
             {/* <Link href="/register">Register</Link> */}
           </div>
           <div
@@ -102,6 +181,11 @@ export default function HomePage() {
               document.getElementById("menu-home").classList.toggle("active");
               document.getElementById("icon-menu").classList.toggle("active");
               document.getElementById("link-home").classList.toggle("active");
+
+              document.getElementById("aboutlinks").classList.remove("active")
+              document.getElementById("eventslinks").classList.remove("active")
+              document.getElementById("successlinks").classList.remove("active")
+              document.getElementById("teamlinks").classList.remove("active")
             }}
           >
             <div className="line cross-y" id="cross-y"></div>
@@ -112,17 +196,33 @@ export default function HomePage() {
         <section className="home-section" id="home-section">
           <div className="home-elements-container">
             <div className="text-content">
-              <h1>
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+              >
                 Developing <span>your mind</span> <br />
                 Elevating <span>your life</span>
-              </h1>
-              <p>
+              </motion.h1>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+              >
                 Awaken your potential, take control of your story, and stop
                 waiting. Start today to build the life you dream of, overcome
                 your limits, challenge your fears, and become the leader of your
                 own path.
-              </p>
-              <div className="btn-actions">
+              </motion.p>
+              <motion.div
+                className="btn-actions"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+              >
                 <Link href="/about/us" className="btn-action">
                   Learn about us{" "}
                   <ArrowRight
@@ -143,7 +243,7 @@ export default function HomePage() {
                     }}
                   />
                 </Link>
-              </div>
+              </motion.div>
             </div>
             <div
               className="btn-down"

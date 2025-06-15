@@ -41,12 +41,12 @@ export default function about() {
             <span>Empowering Lives, Creating Opportunities</span>
             <h3>Who we are: Driving growth and transformation</h3>
             <p>
-              At <strong>LEVEL UP AMERICA</strong>, we believe in the power of
-              growth and transformation. Our mission is to help people realize
-              their potential, overcome challenges, and turn their ideas into
-              reality. Through mentoring, coaching, and counseling, we provide
-              the support needed for each individual to achieve their personal
-              and professional goals with confidence and clarity.
+              At <strong>Vivelup</strong>, we believe in the power of growth and
+              transformation. Our mission is to help people realize their
+              potential, overcome challenges, and turn their ideas into reality.
+              Through mentoring, coaching, and counseling, we provide the
+              support needed for each individual to achieve their personal and
+              professional goals with confidence and clarity.
             </p>
             <p>
               We are distinguished by our comprehensive approach, which ranges
@@ -62,9 +62,9 @@ export default function about() {
               We are an empowerment movement that connects people with
               opportunities, fostering their growth and contributing to a
               stronger society. We believe that as a person grows, their
-              environment also transforms. That's why, at LEVEL UP AMERICA, we
-              not only help people achieve their goals, but we foster a positive
-              impact that transcends generations.
+              environment also transforms. That's why, at Vivelup, we not only
+              help people achieve their goals, but we foster a positive impact
+              that transcends generations.
             </p>
             <div
               style={{ width: "100%", background: "#f1f1f1", height: "30px" }}
@@ -74,8 +74,8 @@ export default function about() {
             </h3>
 
             <p>
-              At <strong>Level Up America</strong>, we offer a comprehensive
-              range of services designed to support individuals, families, and
+              At <strong>Vivelup</strong>, we offer a comprehensive range of
+              services designed to support individuals, families, and
               professionals on their journey toward personal and professional
               growth. Our Life Mentoring Guidance and Life Coaching services
               focus on helping you define your goals, overcome obstacles, and
@@ -96,8 +96,8 @@ export default function about() {
               development. Lastly, our Whole Wellness approach promotes a
               balanced lifestyle by integrating mind, body, and spirit—ensuring
               that you don’t just grow in one area of life, but elevate your
-              entire being. At Level Up America, we guide you to become your
-              best self—personally, professionally, and holistically.
+              entire being. At Vivelup America, we guide you to become your best
+              self—personally, professionally, and holistically.
               <Link
                 href="/coaches/team"
                 style={{
@@ -112,7 +112,7 @@ export default function about() {
                   borderRadius: "4px",
                 }}
               >
-               Connect with a professional
+                Connect with a professional
               </Link>
             </p>
 
@@ -120,10 +120,10 @@ export default function about() {
               style={{ width: "100%", background: "#f1f1f1", height: "30px" }}
             ></div>
 
-            <h3 style={{ paddingTop: "10px" }}>Why choose LEVEL UP AMERICA?</h3>
+            <h3 style={{ paddingTop: "10px" }}>Why choose Vivelup America?</h3>
 
             <p>
-              At <strong>LEVEL UP AMERICA</strong>, we don't just provide
+              At <strong>Vivelup America</strong>, we don't just provide
               mentoring and coaching, we create an environment for real and
               sustainable growth. Our personalized approach ensures that each
               person receives the right guidance and tools for their
@@ -137,8 +137,8 @@ export default function about() {
               We don't just help you improve skills or achieve specific goals,
               but rather we accompany you in a process of continuous evolution.
               We believe in the power of collective growth and the positive
-              impact each person can have on their environment. With LEVEL UP
-              AMERICA, you're not only investing in your success, but in a
+              impact each person can have on their environment. With Vivelup
+              America, you're not only investing in your success, but in a
               community that drives change and innovation.
             </p>
           </div>
@@ -154,7 +154,7 @@ export default function about() {
           </div>
 
           <div className="recent-posts">
-            <h2>RECENT POST</h2>
+            <h2>Upcoming Mentorships</h2>
 
             <a
               href="#"
@@ -164,65 +164,29 @@ export default function about() {
               }
             >
               <img
-                src="/media/card1.jpg"
+                src="/media/services/card2.jpg"
                 alt="Post image"
                 className="post-image"
               />
               <div className="post-content">
                 <h3 className="post-title">
-                  How Young People Can Turn Their Dreams into Reality
+                  A Young Man for History, Purpose, and Legacy
                 </h3>
-                <span className="post-date">Jan 01, 2026</span>
-              </div>
-            </a>
-            <a
-              href="#"
-              className="post-item"
-              onClick={(e) =>
-                handlePostClick(e, "Este post no está disponible por ahora")
-              }
-            >
-              <img
-                src="/media/card2.jpg"
-                alt="Post image"
-                className="post-image"
-              />
-              <div className="post-content">
-                <h3 className="post-title">
-                  Building a Solid Path to Your Future
-                </h3>
-                <span className="post-date">Jan 04, 2026</span>
-              </div>
-            </a>
-            <a
-              href="#"
-              className="post-item"
-              onClick={(e) =>
-                handlePostClick(e, "Este post no está disponible por ahora")
-              }
-            >
-              <img
-                src="/media/card3.jpg"
-                alt="Post image"
-                className="post-image"
-              />
-              <div className="post-content">
-                <h3 className="post-title">Personal and Professional Growth</h3>
-                <span className="post-date">Jun 01, 2025</span>
+                <span className="post-date">1 July, 2025</span>
               </div>
             </a>
           </div>
-          <div className="tag-cloud">
+          {/* <div className="tag-cloud">
             <p>TAG CLOUD</p>
             <div className="tag-cloud-content">
-              <a href="#">Growth</a>
-              <a href="#">Mentoring</a>
-              <a href="#">Leadership</a>
-              <a href="#">Innovation</a>
-              <a href="#">Empowerment</a>
-              <a href="#">Success</a>
+              <Link href="#">Growth</Link>
+              <Link href="#">Mentoring</Link>
+              <Link href="#">Leadership</Link>
+              <Link href="#">Innovation</Link>
+              <Link href="#">Empowerment</Link>
+              <Link href="#">Success</Link>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
       <Footer />
