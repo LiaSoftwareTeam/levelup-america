@@ -54,7 +54,7 @@ export default function Schedule() {
             Take the first step toward your transformation and unlock your full
             potential. Our personalized coaching will guide you with clarity,
             confidence, and purpose—start your journey today.
-          </p>
+          </p> 
         </div>
       </div>
 

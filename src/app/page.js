@@ -180,17 +180,8 @@ export default function HomePage() {
             </span>
 
             <div id="eventslinks" className="drop-links">
-              <Link href="/advice/personal-development/professional-future">
-                <div className="bullet"></div>Vivelup Next
-              </Link>
-              <Link href="/mentorship/vivelup-family">
-                <div className="bullet"></div>Vivelup Family
-              </Link>
-              <Link href="/mentorship/brainstorming">
-                <div className="bullet"></div>Vivelup Brainstorming
-              </Link>
-              <Link href="/mentorship/mind-motion">
-                <div className="bullet"></div>Mind & Motion
+              <Link href="/events/">
+                <div className="bullet"></div>Next Events
               </Link>
             </div>
             <span

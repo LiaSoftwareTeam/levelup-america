@@ -7,7 +7,7 @@ export default function BusinessSuccess() {
   return (
     <div>
       <Navbar />
-      <div>
+      <div> 
         <main>
           <section className="hero personal">
             <div className="hero-content">
@@ -43,7 +43,7 @@ export default function BusinessSuccess() {
 
           <section className="container-general">
             <div className="row top-row">
-              <div className="card-top card">
+              <div className="card-top card-coaches">
                 <div className="date-card">
                   <p>New</p>
                 </div>
@@ -88,7 +88,7 @@ export default function BusinessSuccess() {
               </div>
             </div>
             <div className="row cards-row">
-              <div className="card-top card">
+              <div className="card-top card-coaches">
                 <div className="date-card">
                   <p>New</p>
                 </div>

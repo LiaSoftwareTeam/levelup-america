@@ -276,7 +276,7 @@ select option {
   margin-top: 3rem;
 }
 
-.card {
+.card-coaches {
   border: 1px solid #cecccc;
   border-radius: 5px;
   height: auto;
@@ -288,11 +288,11 @@ select option {
   text-align: center;
   padding: 20px;
 }
-.card .date-card {
+.card-coaches .date-card {
   width: 100%;
   text-align-last: left;
 }
-.card .date-card p {
+.card-coaches .date-card p {
   width: 3rem;
   padding: 5px;
   background-color: var(--primary-color);
@@ -301,7 +301,7 @@ select option {
   color: var(--light-gray);
   clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
 }
-.card .profile-card {
+.card-coaches .profile-card {
   height: 100px;
   width: 100px;
   background: url("../../../public/media/personal/victor\ familia.webp")
@@ -311,27 +311,27 @@ select option {
   border-radius: 50%;
   margin-top: -30px;
 }
-.card .one {
+.card-coaches .one {
   background: url("../../../public/media/personal/eldris_valenzuela.jpg")
     no-repeat center;
   background-size: cover;
 }
-.card .two {
+.card-coaches .two {
   background: url("../../../public/media/client2.jpg") no-repeat center;
   background-size: cover;
 }
-.card .three {
+.card-coaches .three {
   background: url("../../../public/media/client3.jpg") no-repeat center;
   background-size: cover;
 }
-.card .info-card {
+.card-coaches .info-card {
   margin: 15px 0;
 }
-.card .info-card p {
+.card-coaches .info-card p {
   font-size: 18px;
   font-weight: 600;
 }
-.card .info-card span {
+.card-coaches .info-card span {
   display: block;
   font-size: 13px;
   color: gray;
@@ -339,7 +339,7 @@ select option {
   text-transform: uppercase;
   letter-spacing: 0.3px;
 }
-.card .info-card .description {
+.card-coaches .info-card .description {
   font-size: 15px;
   letter-spacing: 0.5px;
   margin-top: 10px;
@@ -347,11 +347,11 @@ select option {
   font-weight: normal;
   text-transform: capitalize;
 }
-.card .btn-action-card {
+.card-coaches .btn-action-card {
   width: 100%;
   margin: 10px 0;
 }
-.card .btn-action-card a {
+.card-coaches .btn-action-card a {
   width: 100%;
   background: var(--accent-color);
   display: block;
@@ -362,13 +362,13 @@ select option {
   border-radius: 3px;
   transition: 0.3s;
 }
-.card .btn-action-card a:hover {
+.card-coaches .btn-action-card a:hover {
   opacity: 0.8;
 }
-.card .skills-card {
+.card-coaches .skills-card {
   text-align: left;
 }
-.card .skills-card p {
+.card-coaches .skills-card p {
   color: #34495e;
   font-weight: 500;
   margin: 10px 0;
@@ -378,7 +378,7 @@ select option {
   gap: 10px;
   flex-wrap: wrap;
 }
-.card .skills-card span {
+.card-coaches .skills-card span {
   padding: 3px 15px;
   border-radius: 100px;
   background: rgba(49, 130, 206, 0.2);
@@ -594,7 +594,6 @@ select option {
 
 .form-group input:focus,
 .form-group select:focus {
-  border-color: #0d66bf;
   outline: none;
 }
 
@@ -1058,7 +1057,7 @@ select option {
   .cards-row {
     flex-wrap: wrap;
   }
-  .card {
+  .card-coaches {
     width: 320px;
   }
   .video-container {
@@ -1281,7 +1280,7 @@ select option {
     padding: 20px;
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 800px) {
   .row {
     padding: 20px 10px;
   }

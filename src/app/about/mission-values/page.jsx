@@ -47,7 +47,7 @@ export default function misionvalues() {
               <img src="/media/about/img1.jpg" alt="" />
               <img src="/media/about/img2.jpg" alt="" />
             </div>
-            <Link href="/advice/all">Get Coaching</Link>
+            <Link href="/events/">Get Coaching</Link>
           </div>
         </div>
         <div className="values">

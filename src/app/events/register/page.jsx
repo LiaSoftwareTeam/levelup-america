@@ -1,12 +1,13 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import "../events.css";
 
-export default function EventRegister() {
+// Componente que usa useSearchParams
+function EventRegisterContent() {
   const searchParams = useSearchParams();
   const eventId = searchParams.get("id");
   
@@ -204,6 +205,15 @@ export default function EventRegister() {
       </div>
       <Footer />
     </div>
+  );
+}
+
+// Componente principal que envuelve el contenido en Suspense
+export default function EventRegister() {
+  return (
+    <Suspense fallback={<div>Cargando...</div>}>
+      <EventRegisterContent />
+    </Suspense>
   );
 }
 
