@@ -239,11 +239,10 @@ export default function HomePage() {
               </Link> */}
             </div>
             <span
-              onClick={() => {
-                alert("The contact email is currently unavailable.");
-              }}
             >
-              Contact
+              <Link href="/resources/blog/" style={{ textDecoration: "none", color:"rgb(228, 225, 225)" }}>
+                Blog
+              </Link>
             </span>
 
             {/*  */}
