@@ -7,7 +7,7 @@ export default function BusinessSuccess() {
   return (
     <div>
       <Navbar />
-      <div> 
+      <div>
         <main>
           <section className="hero personal">
             <div className="hero-content">
@@ -102,7 +102,7 @@ export default function BusinessSuccess() {
                 </div>
                 <div className="btn-action-card">
                   <Link href="/coaches/team/eldris-valenzuela">
-                    Get in touch 
+                    Get in touch
                   </Link>
                 </div>
                 <div className="skills-card">
@@ -180,7 +180,7 @@ export default function BusinessSuccess() {
               <h2>Why join us as a coach?</h2>
               <p>
                 Become part of a mission-driven team that’s transforming lives
-                through career development. At Level Up America, we empower
+                through career development. At Vivelup America, we empower
                 coaches with cutting-edge tools, a supportive community, and the
                 opportunity to make a real difference in people’s lives—while
                 growing professionally.
@@ -229,8 +229,8 @@ export default function BusinessSuccess() {
             <div className="container-general">
               <div style={{ maxWidth: "800px", margin: "0 auto" }}>
                 <h2 style={{ marginBottom: "20px" }}>
-                  Ready to make a difference as a coach? Apply now to join Level
-                  Up America and start transforming careers today!
+                  Ready to make a difference as a coach? Apply now to join
+                  Vivelup America and start transforming careers today!
                 </h2>
                 <Link
                   href="/coaches/register"
@@ -258,7 +258,7 @@ export default function BusinessSuccess() {
               </div>
               <div className="text">
                 <h3>
-                  Stay connected and up to date—follow Level Up America on
+                  Stay connected and up to date—follow Vivelup America on
                   social media!
                 </h3>
                 <p>

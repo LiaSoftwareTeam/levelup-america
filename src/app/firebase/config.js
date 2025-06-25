@@ -1,17 +1,19 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider, signInWithEmailAndPassword } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBQHNC2MhPJo7zojpUddmXcmADy8ybu7h4",
-  authDomain: "levelupamerica.firebaseapp.com",
-  projectId: "levelupamerica",
-  storageBucket: "levelupamerica.firebasestorage.app",
-  messagingSenderId: "348911045202",
-  appId: "1:348911045202:web:2e4456827c9a0b20bfed8b"
+  apiKey: "AIzaSyCkj8LLSALwoPJoXk7G9PwU4VnrYDXoCA0",
+  authDomain: "vivelupamerica.firebaseapp.com",
+  projectId: "vivelupamerica",
+  storageBucket: "vivelupamerica.firebasestorage.app",
+  messagingSenderId: "77705325971",
+  appId: "1:77705325971:web:8d4cb0958e4d1ed7da0c66"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
+export const db = getFirestore(app);
 export const googleProvider = new GoogleAuthProvider();
 export { signInWithEmailAndPassword };

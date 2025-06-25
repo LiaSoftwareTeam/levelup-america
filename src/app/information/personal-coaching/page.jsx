@@ -41,7 +41,7 @@ export default function about() {
             <span>Empowering You, Unlocking Your Future</span>
             <h3>Who We Are: Guiding Growth, Achieving Dreams</h3>
             <p>
-              At Level Up America, we are dedicated to helping young individuals
+              At Vivelup America, we are dedicated to helping young individuals
               reach their full potential through personalized mentorship and
               development programs. Our experienced team works closely with you
               to tackle challenges, build confidence, and foster a growth
@@ -83,11 +83,11 @@ export default function about() {
               }}
             ></div>
             <h3 style={{ paddingTop: "10px", display: "none" }}>
-              Why choose LEVEL UP AMERICA?
+              Why choose Vivelup?
             </h3>
 
             {/* <p>
-              At <strong>LEVEL UP AMERICA</strong>, we don't just provide
+              At <strong></strong>, we don't just provide
               mentoring and coaching, we create an environment for real and
               sustainable growth. Our personalized approach ensures that each
               person receives the right guidance and tools for their

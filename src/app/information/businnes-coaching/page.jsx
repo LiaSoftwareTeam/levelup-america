@@ -42,7 +42,7 @@ export default function about() {
             <span>Empowering Businesses, Unlocking Potential</span>
             <h3>Who We Are: Driving Growth, Shaping Success</h3>
             <p>
-              At Level Up America, we are dedicated to helping businesses reach
+              At Vivelup America, we are dedicated to helping businesses reach
               their full potential through personalized mentorship and
               development programs. Our experienced team works closely with
               leaders and organizations to address specific challenges, improve
@@ -85,11 +85,11 @@ export default function about() {
               }}
             ></div>
             <h3 style={{ paddingTop: "10px", display: "none" }}>
-              Why choose LEVEL UP AMERICA?
+              Why choose Vivelup AMERICA?
             </h3>
 
             {/* <p>
-              At <strong>LEVEL UP AMERICA</strong>, we don't just provide
+              At <strong>Vivelup America</strong>, we don't just provide
               mentoring and coaching, we create an environment for real and
               sustainable growth. Our personalized approach ensures that each
               person receives the right guidance and tools for their
