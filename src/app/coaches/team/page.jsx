@@ -2,8 +2,27 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import "../../styles/ui.css";
 import Link from "next/link";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../../firebase/config";
 
-export default function BusinessSuccess() {
+async function getCoaches() {
+  try {
+    const coachesCollection = collection(db, 'coaches');
+    const coachesSnapshot = await getDocs(coachesCollection);
+    const coachesList = coachesSnapshot.docs.map(doc => ({
+      id: doc.id,
+      ...doc.data()
+    }));
+    return coachesList;
+  } catch (error) {
+    console.error('Error al obtener coaches:', error);
+    return [];
+  }
+}
+
+export default async function BusinessSuccess() {
+  const coaches = await getCoaches();
+  
   return (
     <div>
       <Navbar />
@@ -42,137 +61,104 @@ export default function BusinessSuccess() {
           </section>
 
           <section className="container-general">
-            <div className="row top-row">
-              <div className="card-top card-coaches">
-                <div className="date-card">
-                  <p>New</p>
-                </div>
-                <div className="profile-card"></div>
-                <div className="info-card">
-                  <p>Victor Familia</p>
-                  <span>CEO & coach</span>
-                  <span className="description">
-                    Leadership, personal development, and limit-pushing coach
-                  </span>
-                </div>
-                <div className="btn-action-card">
-                  <Link href="/coaches/team/victor-familia">Get in touch</Link>
-                </div>
-                <div className="skills-card">
-                  <p>Skills *</p>
-                  <div className="skills-items">
-                    <span>Empathy</span>
-                    <span>Listening</span>
-                    <span>Communication</span>
-                    <span>Motivation</span>
-                    <span>Leadership</span>
+            {coaches.length > 0 ? (
+              <>
+                {/* Mostrar el primer coach en la fila superior con el video */}
+                {coaches.length > 0 && (
+                  <div className="row top-row">
+                    <div className="card-top card-coaches">
+                      <div className="date-card">
+                        <p>New</p>
+                      </div>
+                      <div 
+                        className="profile-card" 
+                        style={{
+                          background: `url("${coaches[0].url}") no-repeat center`,
+                          backgroundSize: 'cover'
+                        }}
+                      ></div>
+                      <div className="info-card">
+                        <p>{coaches[0].nombre}</p>
+                        <span>{coaches[0].carrera}</span>
+                        <span className="description">
+                          {coaches[0].aboutMe?.substring(0, 80)}...
+                        </span>
+                      </div>
+                      <div className="btn-action-card">
+                        <Link href={`/coaches/team/${coaches[0].id}`}>Get in touch</Link>
+                      </div>
+                      <div className="skills-card">
+                        <p>Skills *</p>
+                        <div className="skills-items">
+                          <span>Empathy</span>
+                          <span>Listening</span>
+                          <span>Communication</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="video-container">
+                      <div className="video">
+                        <iframe
+                          src="https://www.youtube.com/embed/CJgcq90Fbcw?si=TtI9SGAwyfFGxMAp"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                          referrerPolicy="strict-origin-when-cross-origin"
+                          allowFullScreen
+                        ></iframe>
+                        <div className="phrase">
+                          <p>
+                            "Darkness offers the perfect opportunity to transform the
+                            ordinary into something extraordinary."
+                          </p>
+                          <span>— {coaches[0].nombre}</span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
+                )}
+                
+                {/* Mostrar el resto de coaches en filas */}
+                <div className="row cards-row">
+                  {coaches.slice(1).map((coach) => (
+                    <div key={coach.id} className="card-top card-coaches">
+                      <div className="date-card">
+                        <p>New</p>
+                      </div>
+                      <div 
+                        className="profile-card" 
+                        style={{
+                          background: `url("${coach.url}") no-repeat center`,
+                          backgroundSize: 'cover'
+                        }}
+                      ></div>
+                      <div className="info-card">
+                        <p>{coach.nombre}</p>
+                        <span>{coach.carrera}</span>
+                        <span className="description">
+                          {coach.aboutMe?.substring(0, 80)}...
+                        </span>
+                      </div>
+                      <div className="btn-action-card">
+                        <Link href={`/coaches/team/${coach.id}`}>
+                          Get in touch
+                        </Link>
+                      </div>
+                      <div className="skills-card">
+                        <p>Skills *</p>
+                        <div className="skills-items">
+                          <span>Empathy</span>
+                          <span>Communication</span>
+                          <span>Motivation</span>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
                 </div>
+              </>
+            ) : (
+              <div style={{ textAlign: 'center', padding: '50px 0' }}>
+                <p>No hay coaches disponibles en este momento.</p>
               </div>
-              <div className="video-container">
-                <div className="video">
-                  <iframe
-                    src="https://www.youtube.com/embed/CJgcq90Fbcw?si=TtI9SGAwyfFGxMAp"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerPolicy="strict-origin-when-cross-origin"
-                    allowFullScreen
-                  ></iframe>
-                  <div className="phrase">
-                    <p>
-                      "Darkness offers the perfect opportunity to transform the
-                      ordinary into something extraordinary."
-                    </p>
-                    <span>— Victor Familia</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="row cards-row">
-              <div className="card-top card-coaches">
-                <div className="date-card">
-                  <p>New</p>
-                </div>
-                <div className="profile-card one"></div>
-                <div className="info-card">
-                  <p>Eldris Valenzuela</p>
-                  <span>Wellness and Nutrition Mentor</span>
-                  <span className="description">
-                    Empowering healthy habits for body, mind, and family
-                  </span>
-                </div>
-                <div className="btn-action-card">
-                  <Link href="/coaches/team/eldris-valenzuela">
-                    Get in touch
-                  </Link>
-                </div>
-                <div className="skills-card">
-                  <p>Skills *</p>
-                  <div className="skills-items">
-                    <span>Empathy</span>
-                    <span>Family support</span>
-                    <span>Awareness</span>
-                    <span>Healthy routines</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* <div className="card-top card">
-                <div className="date-card">
-                <p style={{ background: "none", color: "transparent" }}>
-                    New
-                  </p>
-                </div>
-                <div className="profile-card two"></div>
-                <div className="info-card">
-                  <p>James Turner</p>
-                  <span>Personal coach</span>
-                  <span className="description">
-                    Career growth, mindset shifts, and life clarity coach
-                  </span>
-                </div>
-                <div className="btn-action-card">
-                  <Link href="/">Get in touch</Link>
-                </div>
-                <div className="skills-card">
-                  <p>Skills *</p>
-                  <div className="skills-items">
-                    <span>Mindset</span>
-                    <span>Goals</span>
-                    <span>Planning</span>
-                    <span>Motivation</span>
-                    <span>Strategy</span>
-                  </div>
-                </div>
-              </div> */}
-
-              {/* <div className="card-top card">
-                <div className="date-card">
-                  <p style={{ background: "none", color: "transparent" }}>
-                    New
-                  </p>
-                </div>
-                <div className="profile-card three"></div>
-                <div className="info-card">
-                  <p>Helen Reed</p>
-                  <span>Business coach</span>
-                  <span className="description">
-                    Purpose alignment, goal setting, and resilience coaching
-                  </span>
-                </div>
-                <div className="btn-action-card">
-                  <Link href="/">Get in touch</Link>
-                </div>
-                <div className="skills-card">
-                  <p>Skills *</p>
-                  <div className="skills-items">
-                    <span>Resilience</span>
-                    <span>Management</span>
-                    <span>Accountability</span>
-                    <span>Focus</span>
-                  </div>
-                </div>
-              </div> */}
-            </div>
+            )}
           </section>
 
           <section className="about-us">

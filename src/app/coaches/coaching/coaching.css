@@ -1,0 +1,223 @@
+/* Estilos para el formulario de coaching */
+.coaching-container {
+  padding: 120px 20px 60px;
+  max-width: 800px;
+  margin: 0 auto;
+  min-height: 80vh;
+}
+
+.coaching-title {
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.coaching-title h1 {
+  font-size: 32px;
+  color: #0d66bf;
+  margin-bottom: 15px;
+  position: relative;
+  display: inline-block;
+}
+
+.coaching-title h1::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background-color: #0d66bf;
+  border-radius: 3px;
+}
+
+.coaching-title p {
+  font-size: 18px;
+  color: #555;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+.coaching-form {
+  background-color: #fff;
+  padding: 35px;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  border-top: 4px solid #0d66bf;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #333;
+  font-size: 16px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #0d66bf;
+  box-shadow: 0 0 0 3px rgba(13, 102, 191, 0.1);
+}
+
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.date-info {
+  display: block;
+  margin-top: 5px;
+  color: #666;
+  font-size: 14px;
+  font-style: italic;
+}
+
+.submit-btn {
+  background-color: #0d66bf;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #0a4f94;
+}
+
+.submit-btn:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.cancel-btn {
+  display: inline-block;
+  background-color: #f5f5f5;
+  color: #333;
+  padding: 10px 20px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 10px;
+  border: 1px solid #ddd;
+  transition: background-color 0.3s ease;
+}
+
+.cancel-btn:hover {
+  background-color: #e5e5e5;
+}
+
+.form-actions {
+  display: flex;
+  margin-top: 30px;
+}
+
+.error-message {
+  background-color: #ffebee;
+  color: #d32f2f;
+  padding: 10px 15px;
+  border-radius: 4px;
+  margin-top: 15px;
+  border-left: 4px solid #f44336;
+}
+
+.error-message p {
+  margin: 0;
+  font-weight: 500;
+}
+
+.volver-button {
+  display: inline-block;
+  background-color: #0d66bf;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 500;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.volver-button:hover {
+  background-color: #0a4f94;
+}
+
+/* Estilos para el mensaje de éxito */
+.success-message {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  padding: 30px;
+  border-radius: 8px;
+  margin-top: 20px;
+  text-align: center;
+  border-left: 4px solid #4caf50;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.success-message p {
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+
+.success-message .volver-button {
+  background-color: #4caf50;
+  margin-top: 10px;
+}
+
+.success-message .volver-button:hover {
+  background-color: #388e3c;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .coaching-container {
+    padding: 100px 15px 40px;
+  }
+  
+  .coaching-form {
+    padding: 25px;
+  }
+  
+  .coaching-title h1 {
+    font-size: 28px;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+  }
+  
+  .cancel-btn {
+    margin-left: 0;
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  .submit-btn {
+    width: 100%;
+  }
+}
